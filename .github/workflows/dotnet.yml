@@ -25,7 +25,7 @@ jobs:
     - name: Build
       run: dotnet build "./Alexon.UsefulFeatures/Alexon.Quantities/Alexon.Quantities.csproj" -c Release --no-restore
     - name: Test
-      run: dotnet test Alexon.UsefulFeatures/AAlexon.QuantitiesTests/Alexon.QuantitiesTests.csproj --verbosity normal
+      run: dotnet test Alexon.UsefulFeatures/Alexon.QuantitiesTests/Alexon.QuantitiesTests.csproj --verbosity normal
     - name: Create nuget package
       run: dotnet pack Alexon.UsefulFeatures/Alexon.Quantities/Alexon.Quantities.csproj -c Release --output ./nuget
     - name: Publish nuget package
