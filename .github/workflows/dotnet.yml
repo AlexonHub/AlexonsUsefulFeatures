@@ -21,12 +21,12 @@ jobs:
       with:
         dotnet-version: 9.0.x
     - name: Restore dependencies
-      run: dotnet restore "./Alexon.UsefulFeatures/Alexon.UsefulFeatures/Alexon.UsefulFeatures.csproj"
+      run: dotnet restore "./Alexon.UsefulFeatures/Alexon.Quantities/Alexon.Quantities.csproj"
     - name: Build
-      run: dotnet build "./Alexon.UsefulFeatures/Alexon.UsefulFeatures/Alexon.UsefulFeatures.csproj" -c Release --no-restore
+      run: dotnet build "./Alexon.UsefulFeatures/Alexon.Quantities/Alexon.Quantities.csproj" -c Release --no-restore
     - name: Test
-      run: dotnet test Alexon.UsefulFeatures/Alexon.UsefulFeaturesTests/Alexon.UsefulFeaturesTests.csproj --verbosity normal
+      run: dotnet test Alexon.UsefulFeatures/AAlexon.QuantitiesTests/Alexon.QuantitiesTests.csproj --verbosity normal
     - name: Create nuget package
-      run: dotnet pack Alexon.UsefulFeatures/Alexon.UsefulFeatures/Alexon.UsefulFeatures.csproj -c Release --no-build --output ./nuget
+      run: dotnet pack Alexon.UsefulFeatures/Alexon.Quantities/Alexon.Quantities.csproj -c Release --output ./nuget
     - name: Publish nuget package
       run: dotnet nuget push ./nuget/*.nupkg --api-key ${{ secrets.GITHUB_TOKEN }} --source https://nuget.pkg.github.com/AlexonHub/index.json --skip-duplicate
