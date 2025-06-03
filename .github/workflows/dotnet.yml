@@ -29,6 +29,4 @@ jobs:
     - name: Create nuget package
       run: dotnet pack Alexon.UsefulFeatures/Alexon.UsefulFeatures/Alexon.UsefulFeatures.csproj -c Release --no-build --output ./nuget
     - name: Publish nuget package
-      run: dotnet nuget push ./nuget/*.nupkg --api-key ${{ secrets.GITHUB_TOKEN }} --source https://nuget.pkg.github.com/AlexonHub/index.json --generate-notes
-
-    
+      run: dotnet nuget push ./nuget/*.nupkg --api-key ${{ secrets.GITHUB_TOKEN }} --source https://nuget.pkg.github.com/AlexonHub/index.json 
