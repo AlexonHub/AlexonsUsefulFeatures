@@ -1,4 +1,4 @@
-﻿namespace Alexon.Quantities
+﻿namespace Alexon.Quantities.Base
 {
     public static class QuantitiesExtensions
     {
@@ -9,7 +9,7 @@
                 BaseMeasure = (Quantity)Activator.CreateInstance(quantity.GetType()),
                 NaturalDegree = quantity.NaturalDegree,
                 Prefix = quantity.Prefix,
-                Value = (quantity.Value == 0) ? quantity.Prefix.Set(value) : value
+                Value = quantity.Value == 0 ? quantity.Prefix.Set(value) : value
             };
             return newQuantity;
         }

@@ -1,8 +1,9 @@
-﻿using Alexon.Quantities.MeasuresLength;
+﻿using Alexon.Quantities.Base;
+using Alexon.Quantities.MeasuresLength;
 using Alexon.Quantities.MeasuresTime;
 using System.Linq.Expressions;
 
-namespace Alexon.Quantities
+namespace Alexon.Quantities.Derived
 {
     public class Speed : DerivedQuantity
     {

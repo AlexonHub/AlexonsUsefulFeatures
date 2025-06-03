@@ -1,4 +1,6 @@
-﻿namespace Alexon.Quantities.MeasuresLuminousIntensity
+﻿using Alexon.Quantities.Base;
+
+namespace Alexon.Quantities.MeasuresLuminousIntensity
 {
     public class LuminousIntensity: Quantity
     {

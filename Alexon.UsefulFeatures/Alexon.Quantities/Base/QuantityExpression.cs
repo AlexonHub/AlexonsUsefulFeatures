@@ -1,6 +1,6 @@
 ﻿using System.Linq.Expressions;
 
-namespace Alexon.Quantities
+namespace Alexon.Quantities.Base
 {
     public class QuantityExpression<L,R> where L : Quantity where R : Quantity
     {

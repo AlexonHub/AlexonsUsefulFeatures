@@ -1,4 +1,4 @@
-﻿using Alexon.Quantities;
+﻿using Alexon.Quantities.Base;
 using Alexon.Quantities.MeasuresAmountOfSubstance;
 using Alexon.Quantities.MeasuresElectricCurrent;
 using Alexon.Quantities.MeasuresLength;

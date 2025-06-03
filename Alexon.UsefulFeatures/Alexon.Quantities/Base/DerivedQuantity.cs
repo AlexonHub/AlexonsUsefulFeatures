@@ -1,4 +1,4 @@
-﻿namespace Alexon.Quantities
+﻿namespace Alexon.Quantities.Base
 {
     public class DerivedQuantity : Quantity
     {

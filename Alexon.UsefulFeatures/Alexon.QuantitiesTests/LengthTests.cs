@@ -1,4 +1,4 @@
-﻿using Alexon.Quantities;
+﻿using Alexon.Quantities.Base;
 using Alexon.Quantities.MeasuresLength;
 using Alexon.Quantities.MeasuresLength.ImperialUS;
 using Alexon.Quantities.MeasuresLength.SI;

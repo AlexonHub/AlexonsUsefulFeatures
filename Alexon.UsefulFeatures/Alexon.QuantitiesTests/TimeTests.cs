@@ -1,4 +1,4 @@
-﻿using Alexon.Quantities;
+﻿using Alexon.Quantities.Base;
 using Alexon.Quantities.MeasuresTime;
 using Alexon.Quantities.MeasuresTime.SI;
 using Alexon.Quantities.MeasuresTime.SI.Derived;

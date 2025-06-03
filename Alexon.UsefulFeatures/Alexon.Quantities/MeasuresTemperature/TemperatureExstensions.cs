@@ -1,4 +1,5 @@
-﻿using Alexon.Quantities.MeasuresTemperature.ImperialUS;
+﻿using Alexon.Quantities.Base;
+using Alexon.Quantities.MeasuresTemperature.ImperialUS;
 using Alexon.Quantities.MeasuresTemperature.SI;
 using Alexon.Quantities.MeasuresTemperature.SI.Derived;
 

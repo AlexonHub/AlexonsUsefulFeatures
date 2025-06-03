@@ -1,5 +1,6 @@
-﻿using Alexon.Quantities;
+﻿using Alexon.Quantities.Base;
 using Alexon.Quantities.MeasuresMass;
+using Alexon.Quantities.MeasuresMass.CGS;
 using Alexon.Quantities.MeasuresMass.ImperialUS;
 using Alexon.Quantities.MeasuresMass.SI;
 using FluentAssertions;
@@ -28,6 +29,15 @@ namespace Alexon.QuantitiesTests
             mass1kg.Write().Should().Be("m = 1 kg");
             mass1kg.Should().BeOfType<Kilogram>();
 
+            var gram = mass1Kg.ToGram();
+            gram.Should().BeOfType<Gram>();
+            gram.Value.Should().Be(1000);
+            gram.Write().Should().Be("m = 1000 g");
+
+            var massFromGram = gram.ToKilogram();
+            massFromGram.Value.Should().Be(1);
+            massFromGram.Write().Should().Be("m = 1 kg");
+            massFromGram.Should().BeOfType<Kilogram>();
 
         }
     }

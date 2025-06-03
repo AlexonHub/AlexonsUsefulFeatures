@@ -1,4 +1,6 @@
-﻿namespace Alexon.Quantities.MeasuresTemperature
+﻿using Alexon.Quantities.Base;
+
+namespace Alexon.Quantities.MeasuresTemperature
 {
     public class Temperature : Quantity
     {

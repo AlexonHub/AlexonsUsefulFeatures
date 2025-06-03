@@ -1,4 +1,6 @@
-﻿namespace Alexon.Quantities.MeasuresTime
+﻿using Alexon.Quantities.Base;
+
+namespace Alexon.Quantities.MeasuresTime
 {
     public class Time : Quantity
     {

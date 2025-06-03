@@ -6,7 +6,7 @@ using Alexon.Quantities.MeasuresTime;
 using Alexon.Quantities.MeasuresTime.SI;
 using System.Linq.Expressions;
 
-namespace Alexon.Quantities
+namespace Alexon.Quantities.Base
 {
     
     public static class Formula
