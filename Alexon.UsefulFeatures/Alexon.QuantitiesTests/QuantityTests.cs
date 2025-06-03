@@ -128,9 +128,9 @@ namespace Alexon.QuantitiesTests
             oneKm.Value.Should().Be(1000);
             oneKm.NaturalDegree.Should().Be(1);
             oneKm.UnitSymbol.Should().Be("m");
-            oneKm.Write().Should().Be("l = 1 km");    
+            oneKm.Write().Should().Be("l = 1 km");
 
-            var km0_25 = oneKilometer/4;
+            var km0_25 = oneKilometer / 4;
             km0_25.Value.Should().Be(250);
             km0_25.NaturalDegree.Should().Be(1);
             km0_25.UnitSymbol.Should().Be("m");
@@ -152,5 +152,27 @@ namespace Alexon.QuantitiesTests
 
         }
 
+        [Test()]
+        public void DecimalConversionTest()
+        {
+            var meters = new Length().Set<Meter>(1500);
+            meters.Prefix.Should().BeOfType<Base>();
+            meters.Value.Should().Be(1500);
+            meters.MetricValue.Should().Be(1500);
+            meters.UnitSymbol.Should().Be("m");
+            meters.MetricUnitSymbol.Should().Be("m");
+            meters.Write().Should().Be("l = 1500 m");
+
+
+            var kilometers = meters.ToDecimal<Kilo>();
+            kilometers.Prefix.Should().BeOfType<Kilo>();
+            kilometers.Value.Should().Be(1500);
+            kilometers.MetricValue.Should().Be(1.5m);
+            kilometers.UnitSymbol.Should().Be("m");
+            kilometers.MetricUnitSymbol.Should().Be("km");
+            kilometers.Write().Should().Be("l = 1,5 km");
+
+            (meters.Value == kilometers.Value).Should().BeTrue();
+        }
     }
 }

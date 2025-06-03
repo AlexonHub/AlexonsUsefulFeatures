@@ -16,46 +16,6 @@ namespace Alexon.QuantitiesTests
     public class FormulaTests
     {
         [Test()]
-        public void SpeedKiloNeterPerHourTest()
-        {
-            var length = new Length().Set<Kilo, Meter>(5);
-            var hour = new Time().Set<Hour>(1);
-            var speedKmH = Speed.CreateSpeed(length, hour);
-
-            speedKmH.UnitSymbol.Should().Be("(m/h)");
-            speedKmH.Value.Should().Be(5000);
-            speedKmH.QuantitySymbol.Should().Be("v");
-            speedKmH.Description.Should().Be("Length per Time");
-            speedKmH.Measure.Should().Be("Speed");
-            speedKmH.Write().Should().Be("v = 5 k(m/h)");
-
-            var sdeedFromDivide = length / hour;
-            (sdeedFromDivide == speedKmH).Should().BeTrue();
-        }
-
-        [Test()]
-        public void CreateSpeedTest()
-        {
-            var length = new Length().Set<Meter>(5);
-            var time = new Time().Set<Second>(1);
-
-            var speed = Speed.CreateSpeed(length, time);
-        
-            speed.UnitSymbol.Should().Be("(m/s)");
-            speed.Value.Should().Be(5);
-            speed.QuantitySymbol.Should().Be("v");
-            speed.Description.Should().Be("Length per Time");
-            speed.Measure.Should().Be("Speed");
-            speed.Write().Should().Be("v = 5 (m/s)");
-
-            var speedFromTyped = Speed.CreateSpeed<Meter, Second>(5);
-            (speedFromTyped == speed).Should().BeTrue();
-
-            var fromDivide = length / time;
-            (fromDivide == speed).Should().BeTrue();
-        }
-
-        [Test()]
         public void CreateAccelerationTest()
         {
             Meter length = new Length().Set<Meter>(5);

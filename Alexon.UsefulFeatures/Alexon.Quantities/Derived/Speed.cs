@@ -26,5 +26,6 @@ namespace Alexon.Quantities.Derived
         public static Speed CreateSpeed<L,T>(decimal value) where L : Length, new() where T : Time, new() => Formula().Compile()(new Length().Set<L>(value), new Time().Set<T>(1));
         public static Speed CreateSpeed(Length length, Time time) => Formula().Compile()(length, time);
 
+        
     }
 }

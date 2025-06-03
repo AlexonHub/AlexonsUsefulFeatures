@@ -20,9 +20,18 @@ jobs:
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 9.0.x
+        source-url: https://nuget.pkg.github.com/AlexonHub/index.json
+      env:
+        NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
     - name: Restore dependencies
       run: dotnet restore "./Alexon.UsefulFeatures/Alexon.UsefulFeatures/Alexon.UsefulFeatures.csproj"
     - name: Build
       run: dotnet build "./Alexon.UsefulFeatures/Alexon.UsefulFeatures/Alexon.UsefulFeatures.csproj" -c Release --no-restore
     - name: Test
       run: dotnet test Alexon.UsefulFeatures/Alexon.UsefulFeaturesTests/Alexon.UsefulFeaturesTests.csproj --verbosity normal
+    - name: Create nuget package
+      run: dotnet pack Alexon.UsefulFeatures/Alexon.UsefulFeatures/Alexon.UsefulFeatures.csproj -c Release --no-build --output ./nuget
+    - name: Publish nuget package
+      run: dotnet nuget push ./nuget/*.nupkg 
+
+    

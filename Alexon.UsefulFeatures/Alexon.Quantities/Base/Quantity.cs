@@ -17,6 +17,15 @@
         public Prefix Prefix { get; set; } = new Base();
         public virtual int NaturalDegree { get; set; } = 1;
         public virtual decimal Value { get; set; }
+        public decimal MetricValue
+        {
+            get => Prefix.Get(Value); set => Value = Prefix.Set(value);
+        }
+        public string MetricUnitSymbol
+        {
+            get => Prefix.Symbol + UnitSymbol;
+            set => UnitSymbol = value.StartsWith(Prefix.Symbol) ? value.Substring(Prefix.Symbol.Length) : value;
+        }
 
         public Quantity BaseMeasure { get; set; } =  null!;
 
@@ -48,6 +57,13 @@
         override public string ToString()
         {
             return Write();
+        }
+
+        public Quantity ToDecimal<P>() where P : Prefix, new()
+        {
+            var newQuantity = ShallowCopy();    
+            newQuantity.Prefix = new P();
+            return newQuantity;
         }
 
         #region Operators
