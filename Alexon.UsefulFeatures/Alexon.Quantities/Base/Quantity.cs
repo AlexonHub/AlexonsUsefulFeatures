@@ -1,4 +1,6 @@
-﻿namespace Alexon.Quantities.Base
+﻿using System.Globalization;
+
+namespace Alexon.Quantities.Base
 {
     public abstract class Quantity
     {
@@ -44,13 +46,13 @@
 
             if (Prefix is null)
             {
-                return $"{QuantitySymbol} = {val:G29} {UnitSymbol}";
+                return $"{QuantitySymbol} = {val.ToString("G29", CultureInfo.InvariantCulture)} {UnitSymbol}";
             }
             else
             {
                 val = Value / (decimal)Math.Pow(10, NaturalDegree * Prefix.Power);
 
-                return $"{QuantitySymbol} = {val:G29} {Prefix.Symbol}{UnitSymbol}";
+                return $"{QuantitySymbol} = {val.ToString("G29", CultureInfo.InvariantCulture)} {Prefix.Symbol}{UnitSymbol}";
             }
         }
 

@@ -134,7 +134,7 @@ namespace Alexon.QuantitiesTests
             km0_25.Value.Should().Be(250);
             km0_25.NaturalDegree.Should().Be(1);
             km0_25.UnitSymbol.Should().Be("m");
-            km0_25.Write().Should().Be("l = 0,25 km");
+            km0_25.Write().Should().Be("l = 0.25 km");
 
             var m250 = (Meter)km0_25.SetPrefix<Base>();
             m250.Value.Should().Be(250);
@@ -170,7 +170,7 @@ namespace Alexon.QuantitiesTests
             kilometers.MetricValue.Should().Be(1.5m);
             kilometers.UnitSymbol.Should().Be("m");
             kilometers.MetricUnitSymbol.Should().Be("km");
-            kilometers.Write().Should().Be("l = 1,5 km");
+            kilometers.Write().Should().Be("l = 1.5 km");
 
             (meters.Value == kilometers.Value).Should().BeTrue();
         }

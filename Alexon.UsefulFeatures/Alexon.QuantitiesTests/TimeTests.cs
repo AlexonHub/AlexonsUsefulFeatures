@@ -47,7 +47,7 @@ namespace Alexon.QuantitiesTests
 
             var day = hour.ToDay();
             day.Value.Should().Be(0.5m);
-            day.Write().Should().Be("t = 0,5 d");
+            day.Write().Should().Be("t = 0.5 d");
 
         }
 
@@ -68,7 +68,7 @@ namespace Alexon.QuantitiesTests
 
             var day = minutes.ToDay();
             day.Value.Should().Be(0.5m);
-            day.Write().Should().Be("t = 0,5 d");
+            day.Write().Should().Be("t = 0.5 d");
 
         }
 

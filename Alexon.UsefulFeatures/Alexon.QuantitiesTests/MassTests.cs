@@ -21,7 +21,7 @@ namespace Alexon.QuantitiesTests
             var kiloPounds = mass1Kg.ToPound();
             kiloPounds.Should().BeOfType<Pound>();
             kiloPounds.Value.Should().Be(2.20462m);
-            kiloPounds.Write().Should().Be("m = 2,20462 lb");
+            kiloPounds.Write().Should().Be("m = 2.20462 lb");
 
             var pound = new Pound { Value = 2.20462m };
             var mass1kg = pound.ToKilogram();
