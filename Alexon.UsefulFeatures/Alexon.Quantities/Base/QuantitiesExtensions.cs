@@ -6,7 +6,6 @@
         {
             V newQuantity = new()
             {
-                BaseMeasure = Activator.CreateInstance(quantity.GetType()) as Quantity ?? throw new InvalidOperationException($"Unable to create an instance of type {quantity.GetType()}"),
                 NaturalDegree = quantity.NaturalDegree,
                 Prefix = quantity.Prefix,
                 Value = quantity.Value == 0 ? quantity.Prefix.Set(value) : value

@@ -29,11 +29,7 @@ namespace Alexon.Quantities.Base
         }
         public string MetricUnitSymbol => Prefix.Symbol + UnitSymbol;
 
-        public Quantity BaseMeasure { get; set; } =  null!;
-
-        public string Text { get { return Write(); } }
-    
-        public string Write()
+        override public string ToString()
         {
             if (string.IsNullOrEmpty(UnitSymbol))
             {
@@ -56,15 +52,29 @@ namespace Alexon.Quantities.Base
             }
         }
 
-        override public string ToString()
-        {
-            return Write();
-        }
-
         public Quantity ToDecimal<P>() where P : Prefix, new()
         {
             var newQuantity = ShallowCopy();    
             newQuantity.Prefix = new P();
+            return newQuantity;
+        }
+
+        public static V Init<V>(decimal value) where V : Quantity, new()
+        {
+            V newQuantity = new()
+            {
+                Value = value
+            };
+            return newQuantity;
+        }
+
+        public static V Set<P, V>(decimal value) where P : Prefix, new() where V : Quantity, new()
+        {
+            V newQuantity = new()
+            {
+                Prefix  = new P(),
+                Value = value
+            };
             return newQuantity;
         }
 
@@ -198,8 +208,7 @@ namespace Alexon.Quantities.Base
                    Measure == quantity.Measure &&
                    NaturalDegree == quantity.NaturalDegree &&
                    Value == quantity.Value &&
-                   Prefix.Power == quantity.Prefix.Power &&
-                   EqualityComparer<Quantity>.Default.Equals(BaseMeasure, quantity.BaseMeasure);
+                   Prefix.Power == quantity.Prefix.Power;
         }
 
         public override int GetHashCode()
@@ -214,7 +223,6 @@ namespace Alexon.Quantities.Base
             hash.Add(Prefix);
             hash.Add(NaturalDegree);
             hash.Add(Value);
-            hash.Add(BaseMeasure);
             return hash.ToHashCode();
         }
 

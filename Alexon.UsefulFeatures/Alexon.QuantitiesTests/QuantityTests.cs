@@ -49,30 +49,27 @@ namespace Alexon.QuantitiesTests
         [Test()]
         public void InitTest()
         {
+            var meter = Length.Init<Meter>(25);
+
             var meters = new Length().Set<Meter>(100);
-            meters.BaseMeasure.Should().BeOfType<Length>();
-            meters.BaseMeasure.ToString().Should().Be("l");
             meters.Should().BeOfType<Meter>();
             meters.Prefix.Should().BeOfType<Base>(); ;
             meters.Value.Should().Be(100m);
             meters.ToString().Should().Be("l = 100 m");
 
             var kilometers = new Length().Set<Kilo, Meter>(1);
-            kilometers.BaseMeasure.Should().BeOfType<Length>();
             kilometers.Should().BeOfType<Meter>();
             kilometers.Prefix.Should().BeOfType<Kilo>();
             kilometers.Value.Should().Be(1000m);
             kilometers.ToString().Should().Be("l = 1 km");
 
             var kilometers2 = new Length().SetPrefix<Kilo>().Set<Meter>(1m);
-            kilometers2.BaseMeasure.Should().BeOfType<Length>();
             kilometers2.Should().BeOfType<Meter>();
             kilometers2.Prefix.Should().BeOfType<Kilo>();
             kilometers2.Value.Should().Be(1000m);
             kilometers2.ToString().Should().Be("l = 1 km");
 
             var centimeters = new Length().SetPrefix<Centi>().Set<Meter>(1m);
-            centimeters.BaseMeasure.Should().BeOfType<Length>();
             centimeters.Should().BeOfType<Meter>();
             centimeters.Prefix.Should().BeOfType<Centi>();
             centimeters.Value.Should().Be(0.01m);
