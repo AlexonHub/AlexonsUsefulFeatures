@@ -31,7 +31,7 @@ namespace Alexon.QuantitiesTests
             acceleration.QuantitySymbol.Should().Be("a");
             acceleration.Description.Should().Be("Speed per Time");
             acceleration.Measure.Should().Be("Acceleration");
-            acceleration.Write().Should().Be("a = 5 ((m/s)/s)");
+            acceleration.ToString().Should().Be("a = 5 ((m/s)/s)");
 
             (accelerationFromSpeed == acceleration).Should().BeTrue();
             
@@ -54,7 +54,7 @@ namespace Alexon.QuantitiesTests
             force.QuantitySymbol.Should().Be("f");
             force.Description.Should().Be("Mass times Acceleration");
             force.Measure.Should().Be("Force");
-            force.Write().Should().Be("f = 5 N");
+            force.ToString().Should().Be("f = 5 N");
 
             var forceFromAcceleration = Formula.CreateForce(mass, acceleration);
             (forceFromAcceleration == force).Should().BeTrue();

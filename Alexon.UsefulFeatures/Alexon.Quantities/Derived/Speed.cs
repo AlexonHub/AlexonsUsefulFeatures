@@ -11,7 +11,7 @@ namespace Alexon.Quantities.Derived
         public override string QuantitySymbol => "v";
         public override string Description => "Length per Time";
         public override string DimensionSymbol => "L/T";
-        public override string UnitSymbol => $"({Left.UnitSymbol}/{Right.UnitSymbol})"; 
+        public override string UnitSymbol => $"{Left.UnitSymbol}/{Right.UnitSymbol}"; 
         
         public static Expression<Func<Length, Time, Speed>> Formula()
         {

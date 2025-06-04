@@ -30,7 +30,7 @@
             get
             {
                 var measure = derivedQuantities.FirstOrDefault(kv => kv.Value.Measure == Description);
-                return measure.Value.UnitSymbol ?? $"({base.UnitSymbol})";
+                return measure.Value.UnitSymbol ?? $"{base.UnitSymbol}";
             }
             set => unitSymbol = value;
         }
@@ -40,8 +40,8 @@
 
         public Quantity Left { get; set; } = null!;
         public Quantity Right { get; set; } = null!;
-        public Dictionary<string, (string QuantitySymbol, string Measure, string? UnitSymbol)> derivedQuantities = new Dictionary<string, (string QuantitySymbol, string Measure, string? UnitSymbol)>
-                {
+        public Dictionary<string, (string QuantitySymbol, string Measure, string? UnitSymbol)> derivedQuantities = new()
+        {
                     { "Speed", ("v", "Length per Time", default) },
                     { "Acceleration", ("a", "Speed per Time", default) },
                     { "Force", ("f", "Mass times Acceleration", "N") },

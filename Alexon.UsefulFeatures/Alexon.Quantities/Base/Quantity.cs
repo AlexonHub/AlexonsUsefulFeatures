@@ -12,9 +12,13 @@ namespace Alexon.Quantities.Base
         protected string? unitSymbol;
         public virtual string UnitSymbol
         {
-            get => NaturalDegree != 1 ? $"{unitSymbol}^{NaturalDegree}" : unitSymbol ?? string.Empty;
+            get => NaturalDegree != 1 ? $"{FormatUnitSymbol()}^{NaturalDegree}" : $"{FormatUnitSymbol()}" ?? string.Empty;
             set => unitSymbol = value;
         }
+
+        private string FormatUnitSymbol() => unitSymbol is not null && (unitSymbol.Contains('/') || unitSymbol.Contains('*'))
+                ? $"({unitSymbol})"
+                : $"{unitSymbol}";
 
         public Prefix Prefix { get; set; } = new Base();
         public virtual int NaturalDegree { get; set; } = 1;
@@ -23,11 +27,7 @@ namespace Alexon.Quantities.Base
         {
             get => Prefix.Get(Value); set => Value = Prefix.Set(value);
         }
-        public string MetricUnitSymbol
-        {
-            get => Prefix.Symbol + UnitSymbol;
-            set => UnitSymbol = value.StartsWith(Prefix.Symbol) ? value.Substring(Prefix.Symbol.Length) : value;
-        }
+        public string MetricUnitSymbol => Prefix.Symbol + UnitSymbol;
 
         public Quantity BaseMeasure { get; set; } =  null!;
 
@@ -204,7 +204,7 @@ namespace Alexon.Quantities.Base
 
         public override int GetHashCode()
         {
-            HashCode hash = new HashCode();
+            HashCode hash = new();
             hash.Add(Measure);
             hash.Add(Description);
             hash.Add(DimensionSymbol);
@@ -217,11 +217,8 @@ namespace Alexon.Quantities.Base
             hash.Add(BaseMeasure);
             return hash.ToHashCode();
         }
-    
-        public Quantity ShallowCopy()
-        {
-            return (Quantity)MemberwiseClone();
-        }
+
+        public Quantity ShallowCopy() => (Quantity)MemberwiseClone();
 
         #endregion
     }

@@ -13,20 +13,20 @@ namespace Alexon.QuantitiesTests
         public void LengthTest()
         {
             var meters = new Length().Set<Meter>(100m);
-            meters.Write().Should().Be("l = 100 m");
-            meters.ToFeet().Write().Should().Be("l = 328.084 ft");
-            meters.ToInches().Write().Should().Be("l = 3937.01 in");
+            meters.ToString().Should().Be("l = 100 m");
+            meters.ToFeet().ToString().Should().Be("l = 328.084 ft");
+            meters.ToInches().ToString().Should().Be("l = 3937.01 in");
 
             var feet = new Length().Set<Foot>(328.084m);
-            feet.Write().Should().Be("l = 328.084 ft");
-            feet.ToMeters().Write().Should().Be("l = 100 m");
-            feet.ToInches().Write().Should().Be("l = 3937.008 in");
+            feet.ToString().Should().Be("l = 328.084 ft");
+            feet.ToMeters().ToString().Should().Be("l = 100 m");
+            feet.ToInches().ToString().Should().Be("l = 3937.008 in");
 
             var inches = new Length().Set<Inch>(3937.01m);
-            inches.Write().Should().Be("l = 3937.01 in");
+            inches.ToString().Should().Be("l = 3937.01 in");
             var meters100 = inches.ToMeters();
-            meters100.Write().Should().Be("l = 100 m");
-            inches.Set<Inch>(1200).As<Inch>().ToFeet().Write().Should().Be("l = 100 ft");
+            meters100.ToString().Should().Be("l = 100 m");
+            inches.Set<Inch>(1200).As<Inch>().ToFeet().ToString().Should().Be("l = 100 ft");
 
         }
 

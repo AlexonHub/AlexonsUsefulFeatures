@@ -20,12 +20,12 @@ namespace Alexon.QuantitiesTests
             var hour = new Time().Set<Hour>(1);
             var speedKmH = Speed.CreateSpeed(length, hour);
 
-            speedKmH.UnitSymbol.Should().Be("(m/h)");
+            speedKmH.UnitSymbol.Should().Be("m/h");
             speedKmH.Value.Should().Be(5000);
             speedKmH.QuantitySymbol.Should().Be("v");
             speedKmH.Description.Should().Be("Length per Time");
             speedKmH.Measure.Should().Be("Speed");
-            speedKmH.Write().Should().Be("v = 5 k(m/h)");
+            speedKmH.ToString().Should().Be("v = 5 km/h");
 
             var sdeedFromDivide = length / hour;
             (sdeedFromDivide == speedKmH).Should().BeTrue();
@@ -39,12 +39,12 @@ namespace Alexon.QuantitiesTests
 
             var speed = Speed.CreateSpeed(length, time);
 
-            speed.UnitSymbol.Should().Be("(m/s)");
+            speed.UnitSymbol.Should().Be("m/s");
             speed.Value.Should().Be(5);
             speed.QuantitySymbol.Should().Be("v");
             speed.Description.Should().Be("Length per Time");
             speed.Measure.Should().Be("Speed");
-            speed.Write().Should().Be("v = 5 (m/s)");
+            speed.ToString().Should().Be("v = 5 m/s");
 
             var speedFromTyped = Speed.CreateSpeed<Meter, Second>(5);
             (speedFromTyped == speed).Should().BeTrue();
@@ -63,12 +63,12 @@ namespace Alexon.QuantitiesTests
 
             var speedKMH = Speed.CreateSpeed(lengthKm, speedH);
 
-            //speedKMH.UnitSymbol.Should().Be("(k(m/h))");
+            speedKMH.MetricUnitSymbol.Should().Be("km/h");
             //speedKMH.Value.Should().Be(18); // 5 m/s = 18 km/h
             //speedKMH.QuantitySymbol.Should().Be("v");
             //speedKMH.Description.Should().Be("Length per Time");
             //speedKMH.Measure.Should().Be("Speed");
-            //speedKMH.Write().Should().Be("v = 18 k(m/h)");
+            //speedKMH.ToString().Should().Be("v = 18 k(m/h)");
 
         }
     }
