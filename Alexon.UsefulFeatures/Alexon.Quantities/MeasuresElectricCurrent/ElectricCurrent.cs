@@ -1,6 +1,4 @@
-﻿using Alexon.Quantities.Base;
-
-namespace Alexon.Quantities.MeasuresElectricCurrent
+﻿namespace Alexon.Quantities.MeasuresElectricCurrent
 {
     public class ElectricCurrent: Quantity
     {

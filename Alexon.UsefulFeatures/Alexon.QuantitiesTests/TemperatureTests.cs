@@ -1,5 +1,4 @@
-﻿using Alexon.Quantities.Base;
-using Alexon.Quantities.MeasuresTemperature;
+﻿using Alexon.Quantities;
 using Alexon.Quantities.MeasuresTemperature.ImperialUS;
 using Alexon.Quantities.MeasuresTemperature.SI;
 using Alexon.Quantities.MeasuresTemperature.SI.Derived;
@@ -14,20 +13,20 @@ namespace Alexon.QuantitiesTests
         [Test()]
         public void TemperatureTest()
         {
-            var celsius = new Temperature().Set<Celsius>(100);
+            var celsius = Temperature<Celsius>.Init(100);
             celsius.ToString().Should().Be("T = 100 °C");
-            celsius.ToKelvin().ToString().Should().Be("T = 373.15 K");
-            celsius.ToFahrenheit().ToString().Should().Be("T = 212 °F");
+            celsius.To<Kelvin>().ToString().Should().Be("T = 373.15 K");
+            celsius.To<Fahrenheit>().ToString().Should().Be("T = 212 °F");
 
-            var kelvin = new Temperature().Set<Kelvin>(373.15m);
+            var kelvin = Temperature<Kelvin>.Init(373.15m);
             kelvin.ToString().Should().Be("T = 373.15 K");
-            kelvin.ToCelsius().ToString().Should().Be("T = 100 °C");
-            kelvin.ToFahrenheit().ToString().Should().Be("T = 212 °F");
+            kelvin.To<Celsius>().ToString().Should().Be("T = 100 °C");
+            kelvin.To<Fahrenheit>().ToString().Should().Be("T = 212 °F");
 
-            var fahrenheit = new Temperature().Set<Fahrenheit>(212);
+            var fahrenheit = Temperature<Fahrenheit>.Init(212);
             fahrenheit.ToString().Should().Be("T = 212 °F");
-            fahrenheit.ToKelvin().ToString().Should().Be("T = 373.15 K");
-            fahrenheit.ToCelsius().ToString().Should().Be("T = 100 °C");
+            fahrenheit.To<Kelvin>().ToString().Should().Be("T = 373.15 K");
+            fahrenheit.To<Celsius>().ToString().Should().Be("T = 100 °C");
 
         }
 

@@ -1,6 +1,4 @@
-﻿using Alexon.Quantities.Base;
-
-namespace Alexon.Quantities.MeasuresMass
+﻿namespace Alexon.Quantities.MeasuresMass
 {
     public class Mass: Quantity
     {

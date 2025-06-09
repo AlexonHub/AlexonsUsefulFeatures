@@ -1,4 +1,4 @@
-﻿namespace Alexon.Quantities.Base
+﻿namespace Alexon.Quantities.Prefixes
 {
     public class Prefix
     {

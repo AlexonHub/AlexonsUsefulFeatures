@@ -6,7 +6,7 @@ using Alexon.Quantities.MeasuresTime;
 using Alexon.Quantities.MeasuresTime.SI;
 using System.Linq.Expressions;
 
-namespace Alexon.Quantities.Base
+namespace Alexon.Quantities
 {
     
     public static class Formula
@@ -30,9 +30,9 @@ namespace Alexon.Quantities.Base
 
         public static DerivedQuantity CreateNewtonForce(decimal value)
         {
-            var mass = new Mass().Set<Kilogram>(value);
-            var length = new Length().Set<Meter>(1); 
-            var time = new Time().Set<Second>(1);
+            var mass = Mass<Kilogram>.Init(value);
+            var length = Length<Meter>.Init(1); 
+            var time = Time<Second>.Init(1);
             return (DerivedQuantity)Force().Compile()(mass, length, time, time);
         }
 
@@ -55,18 +55,7 @@ namespace Alexon.Quantities.Base
             return lambda;
         }
 
-        public static DerivedQuantity CreateAcceleration<L, T>(decimal value)
-            where L : Length, new ()
-            where T : Time, new ()
-        {
-            var length = new Length().Set<L>(value);
-            var time = new Time().Set<T>(1);
-            return (DerivedQuantity)Acceleration().Compile()(length, time, time);
-        }
-
-        public static DerivedQuantity CreateAcceleration(DerivedQuantity speed, Time time)
-        {
-            return (DerivedQuantity)Acceleration().Compile()((Length)speed.Left, (Time)speed.Right, time);
-        }
+        public static DerivedQuantity CreateAcceleration<L, T>(decimal value) where L : Length, new() where T : Time, new() => (DerivedQuantity)Acceleration().Compile()(Length<L>.Init(value), Time<T>.Init(1), Time<T>.Init(1));
+        public static DerivedQuantity CreateAcceleration(DerivedQuantity speed, Time time) => (DerivedQuantity)Acceleration().Compile()((Length)speed.Left, (Time)speed.Right, time);
     }
 }

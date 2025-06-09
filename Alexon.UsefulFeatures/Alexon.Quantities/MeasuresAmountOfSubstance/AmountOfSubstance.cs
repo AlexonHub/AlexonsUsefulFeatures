@@ -1,6 +1,4 @@
-﻿using Alexon.Quantities.Base;
-
-namespace Alexon.Quantities.MeasuresAmountOfSubstance
+﻿namespace Alexon.Quantities.MeasuresAmountOfSubstance
 {
     public class AmountOfSubstance: Quantity
     {
