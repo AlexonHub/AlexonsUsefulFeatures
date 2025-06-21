@@ -22,43 +22,50 @@ namespace Alexon.Quantities.Derived
             return lambda;
         }
 
-        public static Speed Init<L,T>(decimal value) where L : Length, new() where T : Time, new() => InitFormula().Compile()(Length<L>.Init(value), Time<T>.Init(1));
+        public static Speed Init<L,T>(double value) where L : Length, new() where T : Time, new() => InitFormula().Compile()(Length<L>.Init(value), Time<T>.Init(1));
         public static Speed Init(Length length, Time time) => InitFormula().Compile()(length, time);
 
         public Speed To<QL, QT>() where QL : Length, new() where QT : Time, new()
         {
-            var length = Left.To<QL>();
-            var time = Right.To<QT>();
+            var left = Left.GetType() == typeof(QL) ? Left : Left.To<QL>();
+            var right = Right.GetType() == typeof(QT) ? Right : Right.To<QT>();
+            var newSpeed = Init((Length)left, (Time)right);
 
-            if (length.ConversionFormula is null && time.ConversionFormula is null)
+            if (left.ConversionFormula is null && right.ConversionFormula is null)
             {
-                return Init(length, time);
+                return newSpeed;
             }
 
+            newSpeed.MetricValue = CalculateValue(left, right);
+            return newSpeed;
+        }
+
+        private double CalculateValue(Quantity left, Quantity right)
+        {
             Expression numerator = null!;
             Expression leftConstant = null!;
             Expression leftParameter = null!;
-            if (length.ConversionFormula is null)
-            { 
-                numerator = Expression.Constant(length.Value, typeof(decimal));
+            if (left.ConversionFormula is null)
+            {
+                numerator = Expression.Constant(left.QuantityValue, typeof(double));
             }
             else
             {
-                leftConstant = ((BinaryExpression)length.ConversionFormula.Body).Right;
-                leftParameter = length.ConversionFormula.Parameters[0]; 
+                leftConstant = ((BinaryExpression)left.ConversionFormula.Body).Right;
+                leftParameter = left.ConversionFormula.Parameters[0];
             }
 
             Expression denominator = null!;
             Expression rightConstant = null!;
             Expression rightParameter = null!;
-            if (time.ConversionFormula is null)
+            if (right.ConversionFormula is null)
             {
-                denominator = Expression.Constant(time.Value, typeof(decimal));
+                denominator = Expression.Constant(right.QuantityValue, typeof(double));
             }
             else
             {
-                rightConstant = ((BinaryExpression)time.ConversionFormula.Body).Right;
-                rightParameter = time.ConversionFormula.Parameters[0];
+                rightConstant = ((BinaryExpression)right.ConversionFormula.Body).Right;
+                rightParameter = right.ConversionFormula.Parameters[0];
             }
 
             if (leftParameter is not null)
@@ -68,8 +75,8 @@ namespace Alexon.Quantities.Derived
                     numerator = Expression.Multiply(leftParameter, rightConstant);
                 }
                 else
-                { 
-                    numerator = length.ConversionFormula.Body;
+                {
+                    numerator = left.ConversionFormula.Body;
                 }
             }
 
@@ -79,16 +86,16 @@ namespace Alexon.Quantities.Derived
                 {
                     denominator = Expression.Multiply(rightParameter, leftConstant);
                 }
-                else 
-                { 
-                    denominator = time.ConversionFormula.Body;
+                else
+                {
+                    denominator = right.ConversionFormula.Body;
                 }
             }
 
             var body = Expression.Divide(numerator, denominator);
-            if(body.NodeType == ExpressionType.Divide && body.Right.NodeType == ExpressionType.Divide)
+            if (body.NodeType == ExpressionType.Divide && body.Right.NodeType == ExpressionType.Divide)
             {
-                var bin = ((BinaryExpression)time.ConversionFormula.Body);
+                var bin = ((BinaryExpression)right.ConversionFormula.Body);
                 var coup = Expression.Divide(bin.Right, bin.Left);
                 body = Expression.Multiply(numerator, coup);
             }
@@ -104,22 +111,19 @@ namespace Alexon.Quantities.Derived
                 parameters.Add(rp);
             }
 
-            decimal value;
+            double value;
             if (parameters.Count == 2)
             {
-                var lambda = Expression.Lambda<Func<decimal, decimal, decimal>>(body, parameters);
-                value = lambda.Compile()(Left.Value, Right.Value);
+                var lambda = Expression.Lambda<Func<double, double, double>>(body, parameters);
+                value = lambda.Compile()(Left.QuantityValue, Right.QuantityValue);
             }
             else
             {
-                var lambda = Expression.Lambda<Func<decimal, decimal>>(body, parameters);
-                value = leftParameter is not null ? lambda.Compile()(Left.Value) : lambda.Compile()(Right.Value);
+                var lambda = Expression.Lambda<Func<double, double>>(body, parameters);
+                value = leftParameter is not null ? lambda.Compile()(Left.QuantityValue) : lambda.Compile()(Right.QuantityValue);
             }
 
-            var newSpeed = Init(length, time);
-            newSpeed.MetricValue = value;
-            return newSpeed;
+            return value;
         }
-
     }
 }

@@ -12,7 +12,7 @@ namespace Alexon.Quantities.MeasuresLength
 
         public static Speed operator /(Length left, Time right)
         {
-            if (right.Value == 0) throw new DivideByZeroException("Cannot divide by zero.");
+            if (right.QuantityValue == 0) throw new DivideByZeroException("Cannot divide by zero.");
             return (Speed)left.OperationWithDifferentTypes<Speed>(Operation.Divide, right);
         }
 

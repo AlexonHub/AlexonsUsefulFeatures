@@ -20,15 +20,5 @@ namespace Alexon.UsefulFeaturesTests
            ("cba".Reverse() == "abc").Should().BeTrue();
         }
 
-        [Test()]
-        public void ExpressionTest()
-        {
-            //var expression = "a + b - c * d / e".ToExpression();
-            //expression.Left.Should().Be("a + b");
-            //expression.Operator.Should().Be("-");
-            //expression.Right.Should().Be("c * d / e");
-        }
-
-
     }
 }

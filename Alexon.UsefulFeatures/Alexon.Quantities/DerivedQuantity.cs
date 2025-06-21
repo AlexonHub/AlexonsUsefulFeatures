@@ -6,9 +6,6 @@
 
         public override string Measure => derivedQuantities.FirstOrDefault(kv => kv.Value.Measure == Description).Key ?? Description;
 
-        // Fix for CS8361, CS8089, CS1002, IDE1007, and CS1519:
-        // Parenthesized the conditional expression to avoid ambiguity in string interpolation.
-        // Ensured proper syntax and corrected potential issues with invalid tokens.
         public override string Description
         {
             get
@@ -28,7 +25,7 @@
             set => unitSymbol = value;
         }
 
-        public override decimal Value { get; set; }
+        public override double QuantityValue { get; set; }
 
         public override int NaturalDegree { get; set; }
 
@@ -47,7 +44,7 @@
                         { "Density", ("d", "Mass per Volume", default) }
                     };
 
-        public string Result => $"{Left.Value} {Left.UnitSymbol} {Operator} {Right.Value} {Right.UnitSymbol} = {Value} {UnitSymbol}";
+        public string Result => $"{Left.QuantityValue} {Left.UnitSymbol} {Operator} {Right.QuantityValue} {Right.UnitSymbol} = {QuantityValue} {UnitSymbol}";
 
         public override Quantity ToMetric<P>()
         {
@@ -57,5 +54,6 @@
 
             return newQuantity;
         }
+    
     }
 }

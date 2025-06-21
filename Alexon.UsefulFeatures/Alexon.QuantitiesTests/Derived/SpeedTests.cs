@@ -7,7 +7,7 @@ using Alexon.Quantities.Prefixes;
 using FluentAssertions;
 using NUnit.Framework;
 
-namespace Alexon.Quantities.Derived.Tests
+namespace Alexon.QuantitiesTests.Derived
 {
     [TestFixture()]
     public class SpeedTests
@@ -20,7 +20,7 @@ namespace Alexon.Quantities.Derived.Tests
 
             var speedKmH = Speed.Init(length, hour);
             speedKmH.UnitSymbol.Should().Be("m/h");
-            speedKmH.Value.Should().Be(5000);
+            speedKmH.QuantityValue.Should().Be(5000);
             speedKmH.MetricValue.Should().Be(5);
             speedKmH.MetricUnitSymbol.Should().Be("km/h");
             speedKmH.Description.Should().Be("Length per Time");
@@ -39,7 +39,7 @@ namespace Alexon.Quantities.Derived.Tests
 
             var speed = Speed.Init(length, time);
             speed.UnitSymbol.Should().Be("m/s");
-            speed.Value.Should().Be(5);
+            speed.QuantityValue.Should().Be(5);
             speed.QuantitySymbol.Should().Be("v");
             speed.Description.Should().Be("Length per Time");
             speed.Measure.Should().Be("Speed");
@@ -60,24 +60,29 @@ namespace Alexon.Quantities.Derived.Tests
             speedKMS.Left.Prefix.Should().BeOfType<Kilo>();
             speedKMS.UnitSymbol.Should().Be("m/s");
             speedKMS.MetricUnitSymbol.Should().Be("km/s");
-            speedKMS.MetricValue.Should().Be(0.001m);
-            speedKMS.Value.Should().Be(1);
+            speedKMS.MetricValue.Should().Be(0.001);
+            speedKMS.QuantityValue.Should().Be(1);
             speedKMS.ToString().Should().Be("v = 0.001 km/s");
 
-            var speedKMH = speedKMS.To<Meter, Hour>();
+            var speedKMH = speedKMS.To<Meter, Hour>().ToMetric<Kilo>();
             speedKMH.MetricUnitSymbol.Should().Be("km/h");
-            speedKMH.MetricValue.Should().Be(3.6m);
+            speedKMH.MetricValue.Should().Be(3.6);
             speedKMH.UnitSymbol.Should().Be("m/h");
-            speedKMH.Value.Should().Be(3600);
+            speedKMH.QuantityValue.Should().Be(3600);
             speedKMH.ToString().Should().Be("v = 3.6 km/h");
 
             var speedMH = speedMS.To<Meter, Hour>();
             speedMH.MetricUnitSymbol.Should().Be("m/h");
-            speedMH.MetricValue.Should().Be(3600m);
+            speedMH.MetricValue.Should().Be(3600);
             speedMH.UnitSymbol.Should().Be("m/h");
-            speedMH.Value.Should().Be(3600);
+            speedMH.QuantityValue.Should().Be(3600);
             speedMH.ToString().Should().Be("v = 3600 m/h");
 
+            var speedMSFromKMS = speedKMS.To<Meter, Second>();
+            speedMSFromKMS.Should().Be(speedKMS);
+
+            var speedMSFromMH = speedMH.To<Meter, Second>();
+            speedMSFromMH.Should().Be(speedMS);
         }
 
         [Test()]
@@ -88,7 +93,7 @@ namespace Alexon.Quantities.Derived.Tests
             var speed = Speed.Init(length, time);
 
             var speedKMH = speed.To<Meter, Hour>();
-            speedKMH.Value.Should().Be(18000000);
+            speedKMH.QuantityValue.Should().Be(18000000);
             speedKMH.UnitSymbol.Should().Be("m/h");
             speedKMH.MetricUnitSymbol.Should().Be("km/h");
             speedKMH.MetricValue.Should().Be(18000);

@@ -28,7 +28,7 @@ namespace Alexon.Quantities
             return lambda;
         }
 
-        public static DerivedQuantity CreateNewtonForce(decimal value)
+        public static DerivedQuantity CreateNewtonForce(double value)
         {
             var mass = Mass<Kilogram>.Init(value);
             var length = Length<Meter>.Init(1); 
@@ -55,7 +55,7 @@ namespace Alexon.Quantities
             return lambda;
         }
 
-        public static DerivedQuantity CreateAcceleration<L, T>(decimal value) where L : Length, new() where T : Time, new() => (DerivedQuantity)Acceleration().Compile()(Length<L>.Init(value), Time<T>.Init(1), Time<T>.Init(1));
+        public static DerivedQuantity CreateAcceleration<L, T>(double value) where L : Length, new() where T : Time, new() => (DerivedQuantity)Acceleration().Compile()(Length<L>.Init(value), Time<T>.Init(1), Time<T>.Init(1));
         public static DerivedQuantity CreateAcceleration(DerivedQuantity speed, Time time) => (DerivedQuantity)Acceleration().Compile()((Length)speed.Left, (Time)speed.Right, time);
     }
 }

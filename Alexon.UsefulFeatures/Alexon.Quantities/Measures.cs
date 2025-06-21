@@ -12,13 +12,14 @@ namespace Alexon.Quantities
 {
     public abstract class Quantity<P, T> where P : Prefix, new() where T : Quantity, new()
     {
-        public static T Init(decimal value)
+        public static T Init(double value)
         {
             P prefix = new();
             var quantity = new T()
             {
-                Value = prefix.Set(value),
+                QuantityValue = prefix.Set(value),
                 Prefix = prefix,
+                ConversionExpression = prefix.Formula
             };
             quantity.SetToDecimalConversionFormula();
             return quantity;
@@ -26,7 +27,7 @@ namespace Alexon.Quantities
     }
     public abstract class Quantity<T> where T : Quantity, new()
     {
-        public static T Init(decimal value) => new() { Value = value };
+        public static T Init(double value) => new() { QuantityValue = value };
     }
 
     public abstract class Length<P, T> : Quantity<P, T> where P : Prefix, new() where T : Length, new() { }

@@ -1,18 +1,20 @@
-﻿using Alexon.Quantities.Prefixes;
+﻿using Alexon.Formulas;
+using Alexon.Quantities.Prefixes;
 using System.Globalization;
 using System.Linq.Expressions;
 
 namespace Alexon.Quantities
 {
 
-    public abstract class Quantity
+    public class Quantity
     {
-        public abstract string Measure { get; }
-        public abstract string Description { get; }
-        public abstract string DimensionSymbol { get; }
-        public abstract string QuantitySymbol { get; }
+        public virtual string Measure { get; } = string.Empty;
+        public virtual string Description { get; } = string.Empty;
+        public virtual string DimensionSymbol { get; } = string.Empty;
+        public virtual string QuantitySymbol { get; } = string.Empty;
 
         protected string? unitSymbol;
+
         public virtual string UnitSymbol
         {
             get
@@ -29,23 +31,37 @@ namespace Alexon.Quantities
 
         public Prefix Prefix { get; set; } = new Base();
         public virtual int NaturalDegree { get; set; } = 1;
-        public virtual decimal Value { get; set; }
-        public decimal MetricValue
+        
+        public virtual double QuantityValue { get; set; }
+
+        public double MetricValue
         {
             get
             {
                 if (NaturalDegree == 0 || Prefix.Power == 0)
                 {
-                    return Prefix.Get(Value);
+                    return Prefix.Get(QuantityValue);
                 }
-                var denominator = (decimal)Math.Pow(10, NaturalDegree * Prefix.Power);
-                return Value / denominator;
+                var denominator = (double)Math.Pow(10, NaturalDegree * Prefix.Power);
+                return QuantityValue / denominator;
             }
 
-            set => Value = Prefix.Set(value);
+            set => QuantityValue = Prefix.Set(value);
         }
         public string MetricUnitSymbol => Prefix.Symbol + UnitSymbol;
-        public Expression<Func<decimal, decimal>>? ConversionFormula { get; set; } = null; 
+        public SimpleExpression? ConversionExpression { get; set; } = null!; 
+        public Expression<Func<double, double>>? ConversionFormula { get; set; } = null; 
+        public Expression<Func<double, double>>? InversedConversionFormula
+        {
+            get
+            {
+                if (ConversionFormula is null) return null;
+                Expression body = ((BinaryExpression)ConversionFormula.Body).RevertExpression();
+                var revertedFormula = Expression.Lambda<Func<double, double>>(body, ConversionFormula.Parameters[0]);
+                return revertedFormula;
+            }
+        }
+
         public Expression<Func<Quantity, Quantity, Quantity>>? Formula { get; set; }
 
         override public string ToString()
@@ -55,7 +71,7 @@ namespace Alexon.Quantities
                 return QuantitySymbol;
             }
 
-            return $"{QuantitySymbol} = {MetricValue.ToString("G29", CultureInfo.InvariantCulture)} {Prefix.Symbol}{UnitSymbol}";
+            return $"{QuantitySymbol} = {MetricValue.ToString(CultureInfo.InvariantCulture)} {Prefix.Symbol}{UnitSymbol}";
         }
 
         public virtual Quantity ToMetric<P>() where P : Prefix, new()
@@ -63,41 +79,29 @@ namespace Alexon.Quantities
             var newQuantity = ShallowCopy();
             newQuantity.Prefix = new P();
             newQuantity.SetToDecimalConversionFormula();
+            newQuantity.QuantityValue = QuantityValue;
             return newQuantity;
         }
 
         public Q To<Q>() where Q : Quantity, new()
         {
-            var quantity = new Q()
+            var simpleExpression = ConversionFactor.GetFormula(GetType(), typeof(Q));
+            double value = simpleExpression is not null ? (double)simpleExpression.Calculate((double)QuantityValue) : QuantityValue;
+            var quantity =  new Q()
             {
                 NaturalDegree = NaturalDegree,
                 Prefix = Prefix,
-                Value = Value,
-                ConversionFormula = ConversionFormula
+                QuantityValue = value,
+                ConversionExpression = simpleExpression,
+                ConversionFormula = simpleExpression.OneParamFunc
             };
-
-            Type from = GetType();
-            Type to = typeof(Q);
-
-            var factor = ConversionFactor.GetConversionFactor(from, to);
-            if (factor != 1)
-            {
-                return (Q)quantity.SetConversationValue(factor, Operation.Multiply);
-            }
-
-            factor = ConversionFactor.GetConversionFactor(to, from);
-            if (factor != 1)
-            {
-                return (Q)quantity.SetConversationValue(factor, Operation.Divide);
-            }
-
             return quantity;
         }
 
         #region Operators
 
-        //public static implicit operator decimal(Quantity quantity) => quantity.Value;
-        //public static explicit operator Quantity(decimal value) => Length<T>.Set(value);
+        public static implicit operator double(Quantity quantity) => quantity.QuantityValue;
+        //public static explicit operator Quantity(double value) => Length<T>.Set(value);
 
         public static Quantity operator *(Quantity left, Quantity right)
         {
@@ -108,16 +112,16 @@ namespace Alexon.Quantities
 
             return left.OperationWithDifferentTypes<DerivedQuantity>(Operation.Multiply, right);
         }
-        public static Quantity operator *(Quantity left, decimal number)
+        public static Quantity operator *(Quantity left, double number)
         {
             var quantity = left.ShallowCopy();
-            quantity.Value *= number;
+            quantity.QuantityValue *= number;
             return quantity;
         }
 
         public static Quantity operator /(Quantity left, Quantity right)
         {
-            if (right.Value == 0) throw new DivideByZeroException("Cannot divide by zero.");
+            if (right.QuantityValue == 0) throw new DivideByZeroException("Cannot divide by zero.");
 
             if (left.Measure == right.Measure)
             {
@@ -126,11 +130,11 @@ namespace Alexon.Quantities
 
             return left.OperationWithDifferentTypes<DerivedQuantity>(Operation.Divide, right);
         }
-        public static Quantity operator /(Quantity left, decimal number)
+        public static Quantity operator /(Quantity left, double number)
         {
             if (number == 0) throw new DivideByZeroException("Cannot divide by zero.");
             var quantity = left.ShallowCopy();
-            quantity.Value /= number;
+            quantity.QuantityValue /= number;
             return quantity;
         }
         
@@ -141,13 +145,13 @@ namespace Alexon.Quantities
                 throw new InvalidOperationException($"Cannot add quantities of different measures: {left.Measure} and {right.Measure}.");
             }
             var quantity = left.ShallowCopy();
-            quantity.Value += right.Value;
+            quantity.QuantityValue += right.QuantityValue;
             return quantity;
         }
-        public static Quantity operator +(Quantity left, decimal right)
+        public static Quantity operator +(Quantity left, double right)
         {
             var quantity = left.ShallowCopy();
-            quantity.Value += right;
+            quantity.QuantityValue += right;
             return quantity;
         }
 
@@ -158,24 +162,24 @@ namespace Alexon.Quantities
                 throw new InvalidOperationException($"Cannot subtract quantities of different measures: {left.Measure} and {right.Measure}.");
             }
             var quantity = left.ShallowCopy();
-            quantity.Value -= right.Value;
+            quantity.QuantityValue -= right.QuantityValue;
             return quantity;
         }
-        public static Quantity operator -(Quantity left, decimal right)
+        public static Quantity operator -(Quantity left, double right)
         {
             var quantity = left.ShallowCopy();
-            quantity.Value -= right;
+            quantity.QuantityValue -= right;
             return quantity;
         }
 
-        public static bool operator ==(Quantity left, decimal right)
+        public static bool operator ==(Quantity left, double right)
         {
-            return left.Value == right;
+            return left.QuantityValue == right;
         }
 
-        public static bool operator !=(Quantity left, decimal right)
+        public static bool operator !=(Quantity left, double right)
         {
-            return left.Value != right;
+            return left.QuantityValue != right;
         }
 
         public static bool operator ==(Quantity left, Quantity right)
@@ -193,7 +197,7 @@ namespace Alexon.Quantities
             return obj is Quantity quantity &&
                    Measure == quantity.Measure &&
                    NaturalDegree == quantity.NaturalDegree &&
-                   Value == quantity.Value &&
+                   QuantityValue == quantity.QuantityValue &&
                    Prefix.Power == quantity.Prefix.Power;
         }
 
@@ -208,7 +212,7 @@ namespace Alexon.Quantities
             hash.Add(UnitSymbol);
             hash.Add(Prefix);
             hash.Add(NaturalDegree);
-            hash.Add(Value);
+            hash.Add(QuantityValue);
             return hash.ToHashCode();
         }
 
