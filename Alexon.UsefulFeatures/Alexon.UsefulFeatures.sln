@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alexon.Quantities", "Alexon
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alexon.QuantitiesTests", "Alexon.QuantitiesTests\Alexon.QuantitiesTests.csproj", "{D5394493-D017-4F2C-84D0-5258455C93A2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alexon.Formulas", "Alexon.Formulas\Alexon.Formulas.csproj", "{C58BC23E-015C-440F-B9BC-8EE9142CED5A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alexon.FormulasTests", "Alexon.FormulasTests\Alexon.FormulasTests.csproj", "{85FBCA44-092A-4C20-8487-527B468C4BD6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{D5394493-D017-4F2C-84D0-5258455C93A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D5394493-D017-4F2C-84D0-5258455C93A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D5394493-D017-4F2C-84D0-5258455C93A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C58BC23E-015C-440F-B9BC-8EE9142CED5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C58BC23E-015C-440F-B9BC-8EE9142CED5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C58BC23E-015C-440F-B9BC-8EE9142CED5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C58BC23E-015C-440F-B9BC-8EE9142CED5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{85FBCA44-092A-4C20-8487-527B468C4BD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85FBCA44-092A-4C20-8487-527B468C4BD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85FBCA44-092A-4C20-8487-527B468C4BD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85FBCA44-092A-4C20-8487-527B468C4BD6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,12 +1,27 @@
-﻿namespace Alexon.Quantities.Prefixes
+﻿using Alexon.Formulas;
+using System.Linq.Expressions;
+
+namespace Alexon.Quantities.Prefixes
 {
     public class Prefix
     {
         public string Symbol { get; set; } = null!;
-        public int Power { get; set; } 
+        public int Power { get; set; }
+        public SimpleExpression Formula
+        {
+            get
+            {
+                return new()
+                {
+                    Left = Expression.Parameter(typeof(double), "x"),
+                    Right = Expression.Constant((double)Math.Pow(10, Power)),
+                    NodeType = ExpressionType.Divide
+                };
+            }
+        }
 
-        public decimal Get(decimal value) => value / (decimal)Math.Pow(10, Power);
-        public decimal Set(decimal value) => value * (decimal)Math.Pow(10, Power);
+        public double Get(double value) => value / (double)Math.Pow(10, Power);
+        public double Set(double value) => value * (double)Math.Pow(10, Power);
 
         public static Prefix operator +(Prefix left, Prefix right) => CreatePrefixFromPower(left.Power + right.Power);
         public static Prefix operator -(Prefix left, Prefix right) => CreatePrefixFromPower(left.Power - right.Power);

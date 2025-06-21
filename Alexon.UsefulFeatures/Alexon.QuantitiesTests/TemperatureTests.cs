@@ -18,7 +18,7 @@ namespace Alexon.QuantitiesTests
             celsius.To<Kelvin>().ToString().Should().Be("T = 373.15 K");
             celsius.To<Fahrenheit>().ToString().Should().Be("T = 212 °F");
 
-            var kelvin = Temperature<Kelvin>.Init(373.15m);
+            var kelvin = Temperature<Kelvin>.Init(373.15);
             kelvin.ToString().Should().Be("T = 373.15 K");
             kelvin.To<Celsius>().ToString().Should().Be("T = 100 °C");
             kelvin.To<Fahrenheit>().ToString().Should().Be("T = 212 °F");
