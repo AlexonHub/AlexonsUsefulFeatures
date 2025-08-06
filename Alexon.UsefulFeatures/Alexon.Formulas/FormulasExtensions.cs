@@ -4,6 +4,26 @@ namespace Alexon.Formulas
 {
     public static class FormulasExtensions
     {
+        public static BinaryExpression GetOperationExpression(this ExpressionType operation, Expression left, Expression right)
+        {
+            return operation switch
+            {
+                ExpressionType.Multiply => Expression.Multiply(left, right),
+                ExpressionType.Divide => Expression.Divide(left, right),
+                ExpressionType.Add => Expression.Add(left, right),
+                ExpressionType.Subtract => Expression.Subtract(left, right),
+                ExpressionType.Power => Expression.Power(left, right),
+                _ => throw new InvalidOperationException($"Unknown operation: {operation}"),
+            };
+        }
+        public static Expression RevertExpression(this BinaryExpression body)
+        {
+            Expression? revertedFormula = body.NodeType == ExpressionType.Divide
+                ? Expression.Multiply(body.Left, body.Right)
+                : Expression.Divide(body.Left, body.Right);
+            return (BinaryExpression)revertedFormula;
+        }
+
         public static double Calculate(this SimpleExpression expression, params double[] parameters)
         {
             return expression.Calculate(parameters[0], parameters.Length > 1 ? parameters[1] : null);

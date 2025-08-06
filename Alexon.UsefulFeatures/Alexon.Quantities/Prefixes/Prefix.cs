@@ -42,7 +42,7 @@ namespace Alexon.Quantities.Prefixes
                 3 => new Kilo(),
                 2 => new Hecto(),
                 1 => new Deca(),
-                0 => new Base(),
+                0 => new None(),
                 -1 => new Deci(),
                 -2 => new Centi(),
                 -3 => new Milli(),
@@ -72,7 +72,7 @@ namespace Alexon.Quantities.Prefixes
     public class Kilo : Prefix { public Kilo() { Symbol = "k"; Power = 3; } }
     public class Hecto : Prefix { public Hecto() { Symbol = "h"; Power = 2; } }
     public class Deca : Prefix { public Deca() { Symbol = "da"; Power = 1; } }
-    public class Base : Prefix { public Base() { Symbol = ""; Power = 0; } }
+    public class None : Prefix { public None() { Symbol = ""; Power = 0; } }
     public class Deci : Prefix { public Deci() { Symbol = "d"; Power = -1; } }
     public class Centi : Prefix { public Centi() { Symbol = "c"; Power = -2; } }
     public class Milli : Prefix { public Milli() { Symbol = "m"; Power = -3; } }

@@ -84,7 +84,7 @@ namespace Alexon.QuantitiesTests
         {
             var meters100 = Length<Meter>.Init(100);
             meters100.Should().BeOfType<Meter>();
-            meters100.Prefix.Should().BeOfType<Base>(); ;
+            meters100.Prefix.Should().BeOfType<None>(); ;
             meters100.QuantityValue.Should().Be(100);
             meters100.ToString().Should().Be("l = 100 m");
 
@@ -175,7 +175,7 @@ namespace Alexon.QuantitiesTests
             km0_25.UnitSymbol.Should().Be("m");
             km0_25.ToString().Should().Be("l = 0.25 km");
 
-            var m250 = (Meter)km0_25.ToMetric<Base>();
+            var m250 = (Meter)km0_25.ToMetric<None>();
             m250.QuantityValue.Should().Be(250);
             m250.ToString().Should().Be("l = 250 m");
 
@@ -198,7 +198,7 @@ namespace Alexon.QuantitiesTests
         public void DecimalConversionTest()
         {
             var meters = Length<Meter>.Init(1500);
-            meters.Prefix.Should().BeOfType<Base>();
+            meters.Prefix.Should().BeOfType<None>();
             meters.QuantityValue.Should().Be(1500);
             meters.MetricValue.Should().Be(1500);
             meters.UnitSymbol.Should().Be("m");

@@ -1,4 +1,5 @@
-﻿using System.Linq.Expressions;
+﻿using Alexon.Formulas;
+using System.Linq.Expressions;
 
 namespace Alexon.Quantities
 {
@@ -25,28 +26,18 @@ namespace Alexon.Quantities
             return quantity;
         }
 
-        public static DerivedQuantity SetOperationFormula(this DerivedQuantity quantity, Operation operation)
-        {
-            var left = Expression.Parameter(typeof(Quantity), quantity.Left.QuantitySymbol);
-            var right = Expression.Parameter(typeof(Quantity), quantity.Right.QuantitySymbol); 
-
-            var body = operation.GetOperationExpression(left, right);
-            quantity.Formula = Expression.Lambda<Func<Quantity, Quantity, Quantity>>(body, left, right);
-            return quantity;
-        }
-
-        public static Quantity OperationWithSameType(this Quantity left, Operation operation, Quantity right)
+        public static Quantity OperationWithSameType(this Quantity left, ExpressionType operation, Quantity right)
         {
             var quantity = left.ShallowCopy();
             quantity.ConversionFormula = null; 
 
             switch (operation)
             {
-                case Operation.Multiply:
+                case ExpressionType.Multiply:
                     quantity.QuantityValue = left.QuantityValue * right.QuantityValue;
                     quantity.NaturalDegree = left.NaturalDegree + right.NaturalDegree;
                     break;
-                case Operation.Divide:
+                case ExpressionType.Divide:
                     if (left.Measure == right.Measure && left.NaturalDegree == right.NaturalDegree)
                     {
                         quantity = new Quantity() { QuantityValue = left.QuantityValue / right.QuantityValue };
@@ -57,21 +48,21 @@ namespace Alexon.Quantities
                         quantity.NaturalDegree = left.NaturalDegree - right.NaturalDegree;
                     }
                     break;
-                case Operation.Add:
+                case ExpressionType.Add:
                     quantity.QuantityValue += right.QuantityValue;
                     if (left.NaturalDegree != right.NaturalDegree)
                     {
                         throw new InvalidOperationException($"Cannot add quantities with different natural degrees: {left.NaturalDegree} and {right.NaturalDegree}");
                     }
                     break;
-                case Operation.Subtract:
+                case ExpressionType.Subtract:
                     quantity.QuantityValue -= right.QuantityValue;
                     if (left.NaturalDegree != right.NaturalDegree)
                     {
                         throw new InvalidOperationException($"Cannot subtract quantities with different natural degrees: {left.NaturalDegree} and {right.NaturalDegree}");
                     }
                     break;
-                case Operation.Power:
+                case ExpressionType.Power:
                     quantity.QuantityValue = (double)Math.Pow((double)left.QuantityValue, (double)right.QuantityValue);
                     quantity.NaturalDegree = left.NaturalDegree * right.NaturalDegree;
                     break;
@@ -83,7 +74,7 @@ namespace Alexon.Quantities
             return quantity;
         }
 
-        public static DerivedQuantity OperationWithDifferentTypes<T>(this Quantity left, Operation operation, Quantity right)
+        public static DerivedQuantity OperationWithDifferentTypes<T>(this Quantity left, ExpressionType operation, Quantity right)
             where T : DerivedQuantity, new()
         {
             var quantity = new T
@@ -96,11 +87,11 @@ namespace Alexon.Quantities
 
             switch (operation)
             {
-                case Operation.Divide:
+                case ExpressionType.Divide:
                     quantity.QuantityValue = left.QuantityValue / right.QuantityValue;
                     quantity.UnitSymbol = $"{left.UnitSymbol}/{right.UnitSymbol}";
                     break;
-                case Operation.Multiply:
+                case ExpressionType.Multiply:
                     quantity.QuantityValue = left.QuantityValue * right.QuantityValue;
                     quantity.UnitSymbol = $"{left.UnitSymbol}*{right.UnitSymbol}";
                     break;
@@ -109,6 +100,16 @@ namespace Alexon.Quantities
             }
 
             return quantity.SetOperationFormula(operation);
+        }
+        
+        public static DerivedQuantity SetOperationFormula(this DerivedQuantity quantity, ExpressionType operation)
+        {
+            var left = Expression.Parameter(typeof(Quantity), quantity.Left.QuantitySymbol);
+            var right = Expression.Parameter(typeof(Quantity), quantity.Right.QuantitySymbol); 
+
+            var body = operation.GetOperationExpression(left, right);
+            quantity.Formula = Expression.Lambda<Func<Quantity, Quantity, Quantity>>(body, left, right);
+            return quantity;
         }
 
     }

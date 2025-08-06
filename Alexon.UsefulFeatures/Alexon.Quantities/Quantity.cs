@@ -29,7 +29,7 @@ namespace Alexon.Quantities
                 ? $"({unitSymbol})"
                 : $"{unitSymbol}";
 
-        public Prefix Prefix { get; set; } = new Base();
+        public Prefix Prefix { get; set; } = new None();
         public virtual int NaturalDegree { get; set; } = 1;
         
         public virtual double QuantityValue { get; set; }
@@ -107,10 +107,10 @@ namespace Alexon.Quantities
         {
             if (left.Measure == right.Measure)
             {
-                return left.OperationWithSameType(Operation.Multiply, right);
+                return left.OperationWithSameType(ExpressionType.Multiply, right);
             }
 
-            return left.OperationWithDifferentTypes<DerivedQuantity>(Operation.Multiply, right);
+            return left.OperationWithDifferentTypes<DerivedQuantity>(ExpressionType.Multiply, right);
         }
         public static Quantity operator *(Quantity left, double number)
         {
@@ -125,10 +125,10 @@ namespace Alexon.Quantities
 
             if (left.Measure == right.Measure)
             {
-                return left.OperationWithSameType(Operation.Divide, right);
+                return left.OperationWithSameType(ExpressionType.Divide, right);
             }
 
-            return left.OperationWithDifferentTypes<DerivedQuantity>(Operation.Divide, right);
+            return left.OperationWithDifferentTypes<DerivedQuantity>(ExpressionType.Divide, right);
         }
         public static Quantity operator /(Quantity left, double number)
         {

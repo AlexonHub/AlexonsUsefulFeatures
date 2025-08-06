@@ -1,8 +1,10 @@
-﻿namespace Alexon.Quantities
+﻿using System.Linq.Expressions;
+
+namespace Alexon.Quantities
 {
     public class DerivedQuantity : Quantity
     {
-        public Operation Operator { get; set; }
+        public ExpressionType Operator { get; set; }
 
         public override string Measure => derivedQuantities.FirstOrDefault(kv => kv.Value.Measure == Description).Key ?? Description;
 
@@ -10,7 +12,7 @@
         {
             get
             {
-                string op = (Operator == Operation.Divide) ? "per" : "times";
+                string op = (Operator == ExpressionType.Divide) ? "per" : "times";
                 return $"{Left.Measure} {op} {Right.Measure}";
             }
         }

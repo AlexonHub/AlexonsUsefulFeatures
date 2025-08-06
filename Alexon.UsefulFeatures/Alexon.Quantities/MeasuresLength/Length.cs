@@ -1,5 +1,6 @@
 ﻿using Alexon.Quantities.Derived;
 using Alexon.Quantities.MeasuresTime;
+using System.Linq.Expressions;
 
 namespace Alexon.Quantities.MeasuresLength
 {
@@ -13,7 +14,7 @@ namespace Alexon.Quantities.MeasuresLength
         public static Speed operator /(Length left, Time right)
         {
             if (right.QuantityValue == 0) throw new DivideByZeroException("Cannot divide by zero.");
-            return (Speed)left.OperationWithDifferentTypes<Speed>(Operation.Divide, right);
+            return (Speed)left.OperationWithDifferentTypes<Speed>(ExpressionType.Divide, right);
         }
 
     }

@@ -1,8 +1,9 @@
 ﻿using NUnit.Framework;
 using System.Linq.Expressions;
 using FluentAssertions;
+using Alexon.Formulas;
 
-namespace Alexon.Formulas.Tests
+namespace Alexon.FormulasTests
 {
     [TestFixture()]
     public class SimpleExpressionTests

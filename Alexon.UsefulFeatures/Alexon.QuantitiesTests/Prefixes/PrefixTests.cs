@@ -1,7 +1,8 @@
 ﻿using NUnit.Framework;
 using FluentAssertions;
+using Alexon.Quantities.Prefixes;
 
-namespace Alexon.Quantities.Prefixes.Tests
+namespace Alexon.QuantitiesTests.Prefixes
 {
     [TestFixture()]
     public class PrefixTests

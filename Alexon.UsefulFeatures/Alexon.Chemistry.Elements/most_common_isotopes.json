@@ -1,0 +1,828 @@
+[
+  {
+    "Z": 1,
+    "symbol": "H",
+    "name": "Водород",
+    "neutrons": 0,
+    "mass_defect_per_nucleon_amu": 0
+  },
+  {
+    "Z": 2,
+    "symbol": "He",
+    "name": "Гелий",
+    "neutrons": 2,
+    "mass_defect_per_nucleon_amu": 0.00762
+  },
+  {
+    "Z": 3,
+    "symbol": "Li",
+    "name": "Литий",
+    "neutrons": 4,
+    "mass_defect_per_nucleon_amu": 0.00735
+  },
+  {
+    "Z": 4,
+    "symbol": "Be",
+    "name": "Бериллий",
+    "neutrons": 5,
+    "mass_defect_per_nucleon_amu": 0.00650
+  },
+  {
+    "Z": 5,
+    "symbol": "B",
+    "name": "Бор",
+    "neutrons": 6,
+    "mass_defect_per_nucleon_amu": 0.00729
+  },
+  {
+    "Z": 6,
+    "symbol": "C",
+    "name": "Углерод",
+    "neutrons": 6,
+    "mass_defect_per_nucleon_amu": 0.00766
+  },
+  {
+    "Z": 7,
+    "symbol": "N",
+    "name": "Азот",
+    "neutrons": 7,
+    "mass_defect_per_nucleon_amu": 0.00787
+  },
+  {
+    "Z": 8,
+    "symbol": "O",
+    "name": "Кислород",
+    "neutrons": 8,
+    "mass_defect_per_nucleon_amu": 0.00799
+  },
+  {
+    "Z": 9,
+    "symbol": "F",
+    "name": "Фтор",
+    "neutrons": 10,
+    "mass_defect_per_nucleon_amu": 0.00813
+  },
+  {
+    "Z": 10,
+    "symbol": "Ne",
+    "name": "Неон",
+    "neutrons": 10,
+    "mass_defect_per_nucleon_amu": 0.00803
+  },
+  {
+    "Z": 11,
+    "symbol": "Na",
+    "name": "Натрий",
+    "neutrons": 12,
+    "mass_defect_per_nucleon_amu": 0.00832
+  },
+  {
+    "Z": 12,
+    "symbol": "Mg",
+    "name": "Магний",
+    "neutrons": 12,
+    "mass_defect_per_nucleon_amu": 0.00839
+  },
+  {
+    "Z": 13,
+    "symbol": "Al",
+    "name": "Алюминий",
+    "neutrons": 14,
+    "mass_defect_per_nucleon_amu": 0.00863
+  },
+  {
+    "Z": 14,
+    "symbol": "Si",
+    "name": "Кремний",
+    "neutrons": 14,
+    "mass_defect_per_nucleon_amu": 0.00867
+  },
+  {
+    "Z": 15,
+    "symbol": "P",
+    "name": "Фосфор",
+    "neutrons": 16,
+    "mass_defect_per_nucleon_amu": 0.00877
+  },
+  {
+    "Z": 16,
+    "symbol": "S",
+    "name": "Сера",
+    "neutrons": 16,
+    "mass_defect_per_nucleon_amu": 0.00878
+  },
+  {
+    "Z": 17,
+    "symbol": "Cl",
+    "name": "Хлор",
+    "neutrons": 18,
+    "mass_defect_per_nucleon_amu": 0.00882
+  },
+  {
+    "Z": 18,
+    "symbol": "Ar",
+    "name": "Аргон",
+    "neutrons": 22,
+    "mass_defect_per_nucleon_amu": 0.00889
+  },
+  {
+    "Z": 19,
+    "symbol": "K",
+    "name": "Калий",
+    "neutrons": 20,
+    "mass_defect_per_nucleon_amu": 0.00890
+  },
+  {
+    "Z": 20,
+    "symbol": "Ca",
+    "name": "Кальций",
+    "neutrons": 20,
+    "mass_defect_per_nucleon_amu": 0.00894
+  },
+  {
+    "Z": 21,
+    "symbol": "Sc",
+    "name": "Скандий",
+    "neutrons": 24,
+    "mass_defect_per_nucleon_amu": 0.00898
+  },
+  {
+    "Z": 22,
+    "symbol": "Ti",
+    "name": "Титан",
+    "neutrons": 26,
+    "mass_defect_per_nucleon_amu": 0.00902
+  },
+  {
+    "Z": 23,
+    "symbol": "V",
+    "name": "Ванадий",
+    "neutrons": 28,
+    "mass_defect_per_nucleon_amu": 0.00905
+  },
+  {
+    "Z": 24,
+    "symbol": "Cr",
+    "name": "Хром",
+    "neutrons": 28,
+    "mass_defect_per_nucleon_amu": 0.00912
+  },
+  {
+    "Z": 25,
+    "symbol": "Mn",
+    "name": "Марганец",
+    "neutrons": 30,
+    "mass_defect_per_nucleon_amu": 0.00918
+  },
+  {
+    "Z": 26,
+    "symbol": "Fe",
+    "name": "Железо",
+    "neutrons": 30,
+    "mass_defect_per_nucleon_amu": 0.00922
+  },
+  {
+    "Z": 27,
+    "symbol": "Co",
+    "name": "Кобальт",
+    "neutrons": 32,
+    "mass_defect_per_nucleon_amu": 0.00918
+  },
+  {
+    "Z": 28,
+    "symbol": "Ni",
+    "name": "Никель",
+    "neutrons": 31,
+    "mass_defect_per_nucleon_amu": 0.00922
+  },
+  {
+    "Z": 29,
+    "symbol": "Cu",
+    "name": "Медь",
+    "neutrons": 35,
+    "mass_defect_per_nucleon_amu": 0.00918
+  },
+  {
+    "Z": 30,
+    "symbol": "Zn",
+    "name": "Цинк",
+    "neutrons": 35,
+    "mass_defect_per_nucleon_amu": 0.00917
+  },
+  {
+    "Z": 31,
+    "symbol": "Ga",
+    "name": "Галлий",
+    "neutrons": 38,
+    "mass_defect_per_nucleon_amu": 0.00909
+  },
+  {
+    "Z": 32,
+    "symbol": "Ge",
+    "name": "Германий",
+    "neutrons": 41,
+    "mass_defect_per_nucleon_amu": 0.00904
+  },
+  {
+    "Z": 33,
+    "symbol": "As",
+    "name": "Мышьяк",
+    "neutrons": 42,
+    "mass_defect_per_nucleon_amu": 0.00898
+  },
+  {
+    "Z": 34,
+    "symbol": "Se",
+    "name": "Селен",
+    "neutrons": 45,
+    "mass_defect_per_nucleon_amu": 0.00894
+  },
+  {
+    "Z": 35,
+    "symbol": "Br",
+    "name": "Бром",
+    "neutrons": 44,
+    "mass_defect_per_nucleon_amu": 0.00891
+  },
+  {
+    "Z": 36,
+    "symbol": "Kr",
+    "name": "Криптон",
+    "neutrons": 48,
+    "mass_defect_per_nucleon_amu": 0.00889
+  },
+  {
+    "Z": 37,
+    "symbol": "Rb",
+    "name": "Рубидий",
+    "neutrons": 48,
+    "mass_defect_per_nucleon_amu": 0.00887
+  },
+  {
+    "Z": 38,
+    "symbol": "Sr",
+    "name": "Стронций",
+    "neutrons": 50,
+    "mass_defect_per_nucleon_amu": 0.00885
+  },
+  {
+    "Z": 39,
+    "symbol": "Y",
+    "name": "Иттрий",
+    "neutrons": 50,
+    "mass_defect_per_nucleon_amu": 0.00883
+  },
+  {
+    "Z": 40,
+    "symbol": "Zr",
+    "name": "Цирконий",
+    "neutrons": 51,
+    "mass_defect_per_nucleon_amu": 0.00881
+  },
+  {
+    "Z": 41,
+    "symbol": "Nb",
+    "name": "Ниобий",
+    "neutrons": 52,
+    "mass_defect_per_nucleon_amu": 0.00879
+  },
+  {
+    "Z": 42,
+    "symbol": "Mo",
+    "name": "Молибден",
+    "neutrons": 54,
+    "mass_defect_per_nucleon_amu": 0.00877
+  },
+  {
+    "Z": 43,
+    "symbol": "Tc",
+    "name": "Технеций",
+    "neutrons": 55,
+    "mass_defect_per_nucleon_amu": 0.00875
+  },
+  {
+    "Z": 44,
+    "symbol": "Ru",
+    "name": "Рутений",
+    "neutrons": 57,
+    "mass_defect_per_nucleon_amu": 0.00873
+  },
+  {
+    "Z": 45,
+    "symbol": "Rh",
+    "name": "Родий",
+    "neutrons": 58,
+    "mass_defect_per_nucleon_amu": 0.00871
+  },
+  {
+    "Z": 46,
+    "symbol": "Pd",
+    "name": "Палладий",
+    "neutrons": 60,
+    "mass_defect_per_nucleon_amu": 0.00869
+  },
+  {
+    "Z": 47,
+    "symbol": "Ag",
+    "name": "Серебро",
+    "neutrons": 60,
+    "mass_defect_per_nucleon_amu": 0.00867
+  },
+  {
+    "Z": 48,
+    "symbol": "Cd",
+    "name": "Кадмий",
+    "neutrons": 64,
+    "mass_defect_per_nucleon_amu": 0.00865
+  },
+  {
+    "Z": 49,
+    "symbol": "In",
+    "name": "Индий",
+    "neutrons": 66,
+    "mass_defect_per_nucleon_amu": 0.00863
+  },
+  {
+    "Z": 50,
+    "symbol": "Sn",
+    "name": "Олово",
+    "neutrons": 69,
+    "mass_defect_per_nucleon_amu": 0.00861
+  },
+  {
+    "Z": 51,
+    "symbol": "Sb",
+    "name": "Сурьма",
+    "neutrons": 71,
+    "mass_defect_per_nucleon_amu": 0.00858
+  },
+  {
+    "Z": 52,
+    "symbol": "Te",
+    "name": "Теллур",
+    "neutrons": 76,
+    "mass_defect_per_nucleon_amu": 0.00856
+  },
+  {
+    "Z": 53,
+    "symbol": "I",
+    "name": "Йод",
+    "neutrons": 74,
+    "mass_defect_per_nucleon_amu": 0.00854
+  },
+  {
+    "Z": 54,
+    "symbol": "Xe",
+    "name": "Ксенон",
+    "neutrons": 77,
+    "mass_defect_per_nucleon_amu": 0.00852
+  },
+  {
+    "Z": 55,
+    "symbol": "Cs",
+    "name": "Цезий",
+    "neutrons": 78,
+    "mass_defect_per_nucleon_amu": 0.00850
+  },
+  {
+    "Z": 56,
+    "symbol": "Ba",
+    "name": "Барий",
+    "neutrons": 82,
+    "mass_defect_per_nucleon_amu": 0.00848
+  },
+  {
+    "Z": 57,
+    "symbol": "La",
+    "name": "Лантан",
+    "neutrons": 82,
+    "mass_defect_per_nucleon_amu": 0.00846
+  },
+  {
+    "Z": 58,
+    "symbol": "Ce",
+    "name": "Церий",
+    "neutrons": 82,
+    "mass_defect_per_nucleon_amu": 0.00844
+  },
+  {
+    "Z": 59,
+    "symbol": "Pr",
+    "name": "Празеодим",
+    "neutrons": 82,
+    "mass_defect_per_nucleon_amu": 0.00842
+  },
+  {
+    "Z": 60,
+    "symbol": "Nd",
+    "name": "Неодим",
+    "neutrons": 84,
+    "mass_defect_per_nucleon_amu": 0.00840
+  },
+  {
+    "Z": 61,
+    "symbol": "Pm",
+    "name": "Прометий",
+    "neutrons": 84,
+    "mass_defect_per_nucleon_amu": 0.00838
+  },
+  {
+    "Z": 62,
+    "symbol": "Sm",
+    "name": "Самарий",
+    "neutrons": 88,
+    "mass_defect_per_nucleon_amu": 0.00836
+  },
+  {
+    "Z": 63,
+    "symbol": "Eu",
+    "name": "Европий",
+    "neutrons": 89,
+    "mass_defect_per_nucleon_amu": 0.00834
+  },
+  {
+    "Z": 64,
+    "symbol": "Gd",
+    "name": "Гадолиний",
+    "neutrons": 93,
+    "mass_defect_per_nucleon_amu": 0.00832
+  },
+  {
+    "Z": 65,
+    "symbol": "Tb",
+    "name": "Тербий",
+    "neutrons": 94,
+    "mass_defect_per_nucleon_amu": 0.00830
+  },
+  {
+    "Z": 66,
+    "symbol": "Dy",
+    "name": "Диспрозий",
+    "neutrons": 96,
+    "mass_defect_per_nucleon_amu": 0.00828
+  },
+  {
+    "Z": 67,
+    "symbol": "Ho",
+    "name": "Гольмий",
+    "neutrons": 98,
+    "mass_defect_per_nucleon_amu": 0.00826
+  },
+  {
+    "Z": 68,
+    "symbol": "Er",
+    "name": "Эрбий",
+    "neutrons": 99,
+    "mass_defect_per_nucleon_amu": 0.00824
+  },
+  {
+    "Z": 69,
+    "symbol": "Tm",
+    "name": "Тулий",
+    "neutrons": 100,
+    "mass_defect_per_nucleon_amu": 0.00822
+  },
+  {
+    "Z": 70,
+    "symbol": "Yb",
+    "name": "Иттербий",
+    "neutrons": 103,
+    "mass_defect_per_nucleon_amu": 0.00820
+  },
+  {
+    "Z": 71,
+    "symbol": "Lu",
+    "name": "Лютеций",
+    "neutrons": 104,
+    "mass_defect_per_nucleon_amu": 0.00818
+  },
+  {
+    "Z": 72,
+    "symbol": "Hf",
+    "name": "Гафний",
+    "neutrons": 106,
+    "mass_defect_per_nucleon_amu": 0.00816
+  },
+  {
+    "Z": 73,
+    "symbol": "Ta",
+    "name": "Тантал",
+    "neutrons": 107,
+    "mass_defect_per_nucleon_amu": 0.00814
+  },
+  {
+    "Z": 74,
+    "symbol": "W",
+    "name": "Вольфрам",
+    "neutrons": 110,
+    "mass_defect_per_nucleon_amu": 0.00812
+  },
+  {
+    "Z": 75,
+    "symbol": "Re",
+    "name": "Рений",
+    "neutrons": 111,
+    "mass_defect_per_nucleon_amu": 0.00810
+  },
+  {
+    "Z": 76,
+    "symbol": "Os",
+    "name": "Осмий",
+    "neutrons": 114,
+    "mass_defect_per_nucleon_amu": 0.00808
+  },
+  {
+    "Z": 77,
+    "symbol": "Ir",
+    "name": "Иридий",
+    "neutrons": 115,
+    "mass_defect_per_nucleon_amu": 0.00806
+  },
+  {
+    "Z": 78,
+    "symbol": "Pt",
+    "name": "Платина",
+    "neutrons": 117,
+    "mass_defect_per_nucleon_amu": 0.00804
+  },
+  {
+    "Z": 79,
+    "symbol": "Au",
+    "name": "Золото",
+    "neutrons": 118,
+    "mass_defect_per_nucleon_amu": 0.00802
+  },
+  {
+    "Z": 80,
+    "symbol": "Hg",
+    "name": "Ртуть",
+    "neutrons": 121,
+    "mass_defect_per_nucleon_amu": 0.00800
+  },
+  {
+    "Z": 81,
+    "symbol": "Tl",
+    "name": "Таллий",
+    "neutrons": 124,
+    "mass_defect_per_nucleon_amu": 0.00798
+  },
+  {
+    "Z": 82,
+    "symbol": "Pb",
+    "name": "Свинец",
+    "neutrons": 126,
+    "mass_defect_per_nucleon_amu": 0.00796
+  },
+  {
+    "Z": 83,
+    "symbol": "Bi",
+    "name": "Висмут",
+    "neutrons": 126,
+    "mass_defect_per_nucleon_amu": 0.00794
+  },
+  {
+    "Z": 84,
+    "symbol": "Po",
+    "name": "Полоний",
+    "neutrons": 124,
+    "mass_defect_per_nucleon_amu": 0.00792
+  },
+  {
+    "Z": 85,
+    "symbol": "At",
+    "name": "Астат",
+    "neutrons": 125,
+    "mass_defect_per_nucleon_amu": 0.00790
+  },
+  {
+    "Z": 86,
+    "symbol": "Rn",
+    "name": "Радон",
+    "neutrons": 136,
+    "mass_defect_per_nucleon_amu": 0.00788
+  },
+  {
+    "Z": 87,
+    "symbol": "Fr",
+    "name": "Франций",
+    "neutrons": 136,
+    "mass_defect_per_nucleon_amu": 0.00786
+  },
+  {
+    "Z": 88,
+    "symbol": "Ra",
+    "name": "Радий",
+    "neutrons": 138,
+    "mass_defect_per_nucleon_amu": 0.00784
+  },
+  {
+    "Z": 89,
+    "symbol": "Ac",
+    "name": "Актиний",
+    "neutrons": 138,
+    "mass_defect_per_nucleon_amu": 0.00782
+  },
+  {
+    "Z": 90,
+    "symbol": "Th",
+    "name": "Торий",
+    "neutrons": 142,
+    "mass_defect_per_nucleon_amu": 0.00780
+  },
+  {
+    "Z": 91,
+    "symbol": "Pa",
+    "name": "Протактиний",
+    "neutrons": 140,
+    "mass_defect_per_nucleon_amu": 0.00778
+  },
+  {
+    "Z": 92,
+    "symbol": "U",
+    "name": "Уран",
+    "neutrons": 146,
+    "mass_defect_per_nucleon_amu": 0.00776
+  },
+  {
+    "Z": 93,
+    "symbol": "Np",
+    "name": "Нептуний",
+    "neutrons": 144,
+    "mass_defect_per_nucleon_amu": 0.00774
+  },
+  {
+    "Z": 94,
+    "symbol": "Pu",
+    "name": "Плутоний",
+    "neutrons": 150,
+    "mass_defect_per_nucleon_amu": 0.00772
+  },
+  {
+    "Z": 95,
+    "symbol": "Am",
+    "name": "Америций",
+    "neutrons": 148,
+    "mass_defect_per_nucleon_amu": 0.00770
+  },
+  {
+    "Z": 96,
+    "symbol": "Cm",
+    "name": "Кюрий",
+    "neutrons": 151,
+    "mass_defect_per_nucleon_amu": 0.00768
+  },
+  {
+    "Z": 97,
+    "symbol": "Bk",
+    "name": "Берклий",
+    "neutrons": 150,
+    "mass_defect_per_nucleon_amu": 0.00766
+  },
+  {
+    "Z": 98,
+    "symbol": "Cf",
+    "name": "Калифорний",
+    "neutrons": 153,
+    "mass_defect_per_nucleon_amu": 0.00764
+  },
+  {
+    "Z": 99,
+    "symbol": "Es",
+    "name": "Эйнштейний",
+    "neutrons": 153,
+    "mass_defect_per_nucleon_amu": 0.00762
+  },
+  {
+    "Z": 100,
+    "symbol": "Fm",
+    "name": "Фермий",
+    "neutrons": 157,
+    "mass_defect_per_nucleon_amu": 0.00760
+  },
+  {
+    "Z": 101,
+    "symbol": "Md",
+    "name": "Менделевий",
+    "neutrons": 157,
+    "mass_defect_per_nucleon_amu": 0.00758
+  },
+  {
+    "Z": 102,
+    "symbol": "No",
+    "name": "Нобелий",
+    "neutrons": 157,
+    "mass_defect_per_nucleon_amu": 0.00756
+  },
+  {
+    "Z": 103,
+    "symbol": "Lr",
+    "name": "Лоуренсий",
+    "neutrons": 159,
+    "mass_defect_per_nucleon_amu": 0.00754
+  },
+  {
+    "Z": 104,
+    "symbol": "Rf",
+    "name": "Резерфордий",
+    "neutrons": 157,
+    "mass_defect_per_nucleon_amu": 0.00752
+  },
+  {
+    "Z": 105,
+    "symbol": "Db",
+    "name": "Дубний",
+    "neutrons": 160,
+    "mass_defect_per_nucleon_amu": 0.00750
+  },
+  {
+    "Z": 106,
+    "symbol": "Sg",
+    "name": "Сиборгий",
+    "neutrons": 157,
+    "mass_defect_per_nucleon_amu": 0.00748
+  },
+  {
+    "Z": 107,
+    "symbol": "Bh",
+    "name": "Борий",
+    "neutrons": 157,
+    "mass_defect_per_nucleon_amu": 0.00746
+  },
+  {
+    "Z": 108,
+    "symbol": "Hs",
+    "name": "Хассий",
+    "neutrons": 163,
+    "mass_defect_per_nucleon_amu": 0.00744
+  },
+  {
+    "Z": 109,
+    "symbol": "Mt",
+    "name": "Мейтнерий",
+    "neutrons": 159,
+    "mass_defect_per_nucleon_amu": 0.00742
+  },
+  {
+    "Z": 110,
+    "symbol": "Ds",
+    "name": "Дармштадтий",
+    "neutrons": 161,
+    "mass_defect_per_nucleon_amu": 0.00740
+  },
+  {
+    "Z": 111,
+    "symbol": "Rg",
+    "name": "Рентгений",
+    "neutrons": 161,
+    "mass_defect_per_nucleon_amu": 0.00738
+  },
+  {
+    "Z": 112,
+    "symbol": "Cn",
+    "name": "Коперниций",
+    "neutrons": 165,
+    "mass_defect_per_nucleon_amu": 0.00736
+  },
+  {
+    "Z": 113,
+    "symbol": "Nh",
+    "name": "Нихоний",
+    "neutrons": 170,
+    "mass_defect_per_nucleon_amu": 0.00734
+  },
+  {
+    "Z": 114,
+    "symbol": "Fl",
+    "name": "Флеровий",
+    "neutrons": 175,
+    "mass_defect_per_nucleon_amu": 0.00732
+  },
+  {
+    "Z": 115,
+    "symbol": "Mc",
+    "name": "Московий",
+    "neutrons": 173,
+    "mass_defect_per_nucleon_amu": 0.00730
+  },
+  {
+    "Z": 116,
+    "symbol": "Lv",
+    "name": "Ливерморий",
+    "neutrons": 177,
+    "mass_defect_per_nucleon_amu": 0.00728
+  },
+  {
+    "Z": 117,
+    "symbol": "Ts",
+    "name": "Теннессин",
+    "neutrons": 177,
+    "mass_defect_per_nucleon_amu": 0.00726
+  },
+  {
+    "Z": 118,
+    "symbol": "Og",
+    "name": "Оганесон",
+    "neutrons": 176,
+    "mass_defect_per_nucleon_amu": 0.00724
+  }
+]
