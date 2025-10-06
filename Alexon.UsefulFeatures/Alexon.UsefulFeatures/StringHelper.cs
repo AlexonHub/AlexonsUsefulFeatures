@@ -13,5 +13,11 @@
             Array.Reverse(charArray);
             return new string(charArray);
         }
+
+        public static string GetNumbersFromString(this string input)
+        {
+            var numbers = input.Where(char.IsDigit).Select(c => c);
+            return new string([.. numbers]);
+        }
     }
 }

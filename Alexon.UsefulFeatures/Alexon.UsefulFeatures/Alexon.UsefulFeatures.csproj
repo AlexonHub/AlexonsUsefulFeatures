@@ -10,4 +10,10 @@
     <ProjectReference Include="..\Alexon.Quantities\Alexon.Quantities.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="TestLocations\TestArchive.zip">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

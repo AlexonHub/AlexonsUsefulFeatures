@@ -23,6 +23,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alexon.Chemistry.Elements",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alexon.Chemistry.ElementsTests", "Alexon.Chemistry.ElementsTests\Alexon.Chemistry.ElementsTests.csproj", "{4A79DF58-C56A-49FA-BF77-B71313CBDD56}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alexon.UsefulTools", "Alexon.UsefulTools\Alexon.UsefulTools.csproj", "{BB94AF88-A687-4D55-B5B5-B7369D3D50D6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alexon.UsefulToolsTests", "Alexon.UsefulToolsTests\Alexon.UsefulToolsTests.csproj", "{2ACB21FE-1B24-4CEC-8D3B-4CC86D96DF2E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +73,14 @@ Global
 		{4A79DF58-C56A-49FA-BF77-B71313CBDD56}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4A79DF58-C56A-49FA-BF77-B71313CBDD56}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4A79DF58-C56A-49FA-BF77-B71313CBDD56}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB94AF88-A687-4D55-B5B5-B7369D3D50D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB94AF88-A687-4D55-B5B5-B7369D3D50D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB94AF88-A687-4D55-B5B5-B7369D3D50D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB94AF88-A687-4D55-B5B5-B7369D3D50D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2ACB21FE-1B24-4CEC-8D3B-4CC86D96DF2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2ACB21FE-1B24-4CEC-8D3B-4CC86D96DF2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2ACB21FE-1B24-4CEC-8D3B-4CC86D96DF2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2ACB21FE-1B24-4CEC-8D3B-4CC86D96DF2E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
