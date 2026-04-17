@@ -16,6 +16,7 @@ namespace Alexon.Formulas
                 _ => throw new InvalidOperationException($"Unknown operation: {operation}"),
             };
         }
+
         public static Expression RevertExpression(this BinaryExpression body)
         {
             Expression? revertedFormula = body.NodeType == ExpressionType.Divide

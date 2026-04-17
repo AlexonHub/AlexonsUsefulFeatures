@@ -10,8 +10,8 @@ namespace Alexon.UsefulFeaturesTests
         [Test()]
         public void IsPalindromeTest()
         {
-            "aba".IsPalindrome().Should().BeTrue();
-            "abc".IsPalindrome().Should().BeFalse();
+            "aba".IsPalindrome.Should().BeTrue();
+            "abc".IsPalindrome.Should().BeFalse();
         }
 
         [Test()]

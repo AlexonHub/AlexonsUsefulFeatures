@@ -10,6 +10,7 @@ namespace Alexon.Chemistry.Elements
         public override int CommonIsotopeNeutrons => 0;
         public override double MassDefectPerNucleonAmu => 0.0000; // Hydrogen has no mass defect
     }
+
     public class Helium : Atom
     {
         public override int AtomicNumber => 2;
@@ -498,6 +499,7 @@ namespace Alexon.Chemistry.Elements
         public override int CommonIsotopeNeutrons => 82;
         public override double MassDefectPerNucleonAmu => 0.00000000000005; // Samarium has a small mass defect
     }
+
     public class Europium : Atom
     {
         public override int AtomicNumber => 63;
@@ -690,6 +692,7 @@ namespace Alexon.Chemistry.Elements
         public override int CommonIsotopeNeutrons => 136;
         public override double MassDefectPerNucleonAmu => 0.0000000000000000000005; // Radon has a small mass defect
     }
+
     public class Francium : Atom
     {
         public override int AtomicNumber => 87;
@@ -698,6 +701,7 @@ namespace Alexon.Chemistry.Elements
         public override int CommonIsotopeNeutrons => 136;
         public override double MassDefectPerNucleonAmu => 0.0000000000000000000002; // Francium has a small mass defect
     }
+
     public class Radium : Atom
     {
         public override int AtomicNumber => 88;
@@ -835,6 +839,7 @@ namespace Alexon.Chemistry.Elements
         public override int CommonIsotopeNeutrons => 157;
         public override double MassDefectPerNucleonAmu => 0.0000000000000000000000000005; // Rutherfordium has a small mass defect
     }
+
     public class Dubnium : Atom
     {
         public override int AtomicNumber => 105;
@@ -843,6 +848,7 @@ namespace Alexon.Chemistry.Elements
         public override int CommonIsotopeNeutrons => 159;
         public override double MassDefectPerNucleonAmu => 0.0000000000000000000000000002; // Dubnium has a small mass defect
     }
+
     public class Seaborgium : Atom
     {
         public override int AtomicNumber => 106;
@@ -907,6 +913,7 @@ namespace Alexon.Chemistry.Elements
         public override int CommonIsotopeNeutrons => 176;
         public override double MassDefectPerNucleonAmu => 0.00734;
     }
+
     public class Flerovium : Atom
     {
         public override int AtomicNumber => 114;
@@ -915,6 +922,7 @@ namespace Alexon.Chemistry.Elements
         public override int CommonIsotopeNeutrons => 175;
         public override double MassDefectPerNucleonAmu => 0.00734; // Flerovium has a small mass defect
     }
+
     public class Moscovium : Atom
     {
         public override int AtomicNumber => 115;
@@ -923,6 +931,7 @@ namespace Alexon.Chemistry.Elements
         public override int CommonIsotopeNeutrons => 177;
         public override double MassDefectPerNucleonAmu => 0.00734; // Moscovium has a small mass defect
     }
+
     public class Livermorium : Atom
     {
         public override int AtomicNumber => 116;
@@ -931,6 +940,7 @@ namespace Alexon.Chemistry.Elements
         public override int CommonIsotopeNeutrons => 177;
         public override double MassDefectPerNucleonAmu => 0.00734; // Livermorium has a small mass defect
     }
+
     public class Tennessine : Atom
     {
         public override int AtomicNumber => 117;
@@ -939,6 +949,7 @@ namespace Alexon.Chemistry.Elements
         public override int CommonIsotopeNeutrons => 177;
         public override double MassDefectPerNucleonAmu => 0.00734; // Tennessine has a small mass defect
     }
+
     public class Oganesson : Atom
     {
         public override int AtomicNumber => 118;

@@ -31,9 +31,9 @@ public abstract class Atom
     {
         get
         {
-            return (double)Protons * Constants.ProtonMassKg +
-                   (double)Neutrons * Constants.NeutronMassKg +
-                   (double)Electrons * Constants.ElectronMassKg;
+            return Protons * Constants.ProtonMassKg +
+                   Neutrons * Constants.NeutronMassKg +
+                   Electrons * Constants.ElectronMassKg;
         }
     }
 
